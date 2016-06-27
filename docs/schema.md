@@ -1,46 +1,42 @@
 # Schema Information
 
-## notes
+## projects
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-title       | string    | not null
-body        | text      | not null
+name       | string    | not null
+description        | text      | not null
+street_address | string    | not null
+city        | string      | not null
+state        | string      | not null
+zip_code        | integer      | not null
+media_url        | string      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
 archived    | boolean   | not null, default: false
 
-## notebooks
+## comments
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
-description | string    | 
+project_id       | string    | not null, foreign key
+body | string    |  not null
 
-## reminders
+## likes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-note_id     | string    | not null, foreign key (references notes), indexed
-date        | datetime  | not null
-type        | string    | not null
-prev_id     | integer   | foreign key (references reminders), indexed
+project_id     | string    | not null, foreign key (references projects), indexed
 
-## tags
+## contributions
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null
+amount      | integer   | not null
+user_id      | integer   | not null, foreign key (references users)
+project_id    | integer   | not null, foreign key (references projects)
 
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-name        | string    | not null
-note_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
-tag_id      | integer   | not null, foreign key (references tags), indexed
 
 ## users
 column name     | data type | details

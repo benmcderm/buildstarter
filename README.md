@@ -1,29 +1,29 @@
-# FresherNote
+# BuildStarter
 
 [Heroku link][heroku] **Note:** This should be a link to your production site
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://salty-lake-96978.herokuapp.com/
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+BuildStarter is a web application inspired by Kickstarter that will be built using Ruby on Rails and React.js.  BuildStarter allows users to crowdfund real estate investments.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-- [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
-- [ ] Notes
+- [ ] A production README, replacing this README
+- [ ] Hosting on Heroku
+- [ ] Projects
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Notebooks for organizing notes
+- [ ] Ability to back a Project / Choose a price level
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Tags for notes
+- [ ] Ability to search for Projects
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Rich Text Editing of notes
+-  [ ] Categories for projects
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
@@ -43,7 +43,7 @@ FresherNote is a web application inspired by Evernote that will be build using R
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup and Front End User Authentication (1 day, W1 Tu 6pm)
+### Phase 1: Backend setup and Front End User Authentication (1 day)
 
 **Objective:** Functioning rails project with Authentication
 
@@ -53,34 +53,37 @@ FresherNote is a web application inspired by Evernote that will be build using R
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
+### Phase 2: Project Model, API, and basic APIUtil (1.5 days)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Projects can be created and read through
 the API.
 
-- [ ] create `Note` model
+- [ ] create `Project` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
+- [ ] CRUD API for projects (`ProjectController`)
+- [ ] jBuilder views for projects
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
 
-### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
+### Phase 3: Flux Architecture and Router (1.5 days)
 
-**Objective:** Notes can be created, read, edited and destroyed with the
+**Objective:** Projects can be created, read, and destroyed with the
 user interface.
 
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle
+- implement each project component, building out the flux loop as needed.
+  - [ ] `BrowserSelector`
+  - [ ] `BrowserIndex`
+  - [ ] `BrowserIndexItem`
+  - [ ] `ProjectDetailIndex`
+  - [ ] `ProjectDetailIndexItem`
+  - [ ] `ProjectForm`
+- [ ] save Projects to the DB when the form loses focus or is left idle
   after editing.
 
-### Phase 4: Start Styling (0.5 days, W2 M 12pm)
+### Phase 4: Start Styling (0.5 days)
 
 **Objective:** Existing pages (including signup/signin) will look good.
 
@@ -88,42 +91,38 @@ user interface.
 - [ ] position elements on the page
 - [ ] add basic colors & styles
 
-### Phase 5: Notebooks (1 day, W2 Tu 12pm)
+### Phase 5: Project creation and funding (1 day)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Projects can be created and invested in.
 
-- [ ] create `Notebook` model
 - build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
+  - [ ] ProjectFormTabs
+  - [ ] ProjectFormTabItem
+  - [ ] ContributeForm
+
 - Use CSS to style new views
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
-which has its own `Index` view.
+### Phase 6: Splash page and navigation (1 day)
 
-### Phase 6: Tags (1 days, W2 Th 12pm)
-
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Splash page cycles through photos and navigation allows users to find projects quickly.
 
 - [ ] create `Tag` model and join table
+- build out Flux loop, and components for:
+  - [ ] SplashIndex
+  - [ ] SplashIndexItem
+- Use CSS to style new views
+
+### Phase 7: Project Likes, Comments, Edits (1 day)
+
+**objective:** All projects can receive likes, comments, or edits.
+
+- [ ] create models and join tables for Like, Comment, and Edit
 - build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
-- [ ] Style new elements
+  - [ ] fetching likes, comments, and edits for projects
+  - [ ] adding likes, comments, and edits for projects
+- [ ] Style the new elements.
 
-### Phase 7: Allow Complex Styling in Notes (0.5 days, W2 Th 6pm)
-
-**objective:** Enable complex styling of notes.
-
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
-
-### Phase 8: Styling Cleanup and Seeding (1 day, W2 F 6pm)
+### Phase 8: Styling Cleanup and Seeding (1 day)
 
 **objective:** Make the site feel more cohesive and awesome.
 
@@ -132,11 +131,10 @@ which has its own `Index` view.
 - [ ] Add modals, transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] Search based on risk (calculated via expected ROI)
+- [ ] Pagination / infinite scroll for Projects Index
+- [ ] Hoverable YOY graphs
+- [ ] Mapping of property
 
 [phase-one]: docs/phases/phase1.md
 [phase-two]: docs/phases/phase2.md

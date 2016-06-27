@@ -6,17 +6,21 @@
 ## New Session
 ![new-session]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+## Splash
+![splash]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
+## Discover
+![discover]
 
-## NotebookForm
-![notebook-form]
+## Project
+![project]
 
-[new-user]: ./wireframes/new_user.png
-[new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+## ProjectForm
+![project-form]
+
+[new-user]: ./wireframes/signup.png
+[new-session]: ./wireframes/login.png
+[splash]: ./wireframes/splash.png
+[discover]: ./wireframes/discover.png
+[project]: ./wireframes/project.png
+[project-form]: ./wireframes/new-project.png
