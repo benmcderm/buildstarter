@@ -16,12 +16,17 @@ const LoginForm = {
     this.setState({ username: newUsername});
   },
 
-  handleSubmit(){
+  handleSubmit(e){
+    e.preventDefault();
     const formData = {
       username: this.state.username,
       password: this.state.password
     }
-    SessionActions.login(formData);
+    if (this.props.location.pathname === "/login") {
+      SessionActions.logIn(formData);
+    } else {
+      SessionActions.signUp(formData);
+    }
   },
 
   render(){
