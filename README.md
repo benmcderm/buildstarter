@@ -10,7 +10,7 @@ BuildStarter is a web application inspired by Kickstarter that will be built usi
 
 - [ ] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
-- [ ] Hosting on Heroku
+- [x] Hosting on Heroku
 - [ ] Projects
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
@@ -47,8 +47,8 @@ BuildStarter is a web application inspired by Kickstarter that will be built usi
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] create new project
-- [ ] create `User` model
+- [x] create new project
+- [x] create `User` model
 - [ ] authentication
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
