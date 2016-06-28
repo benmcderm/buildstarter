@@ -112,7 +112,7 @@ user interface.
   - [ ] SplashIndexItem
 - Use CSS to style new views
 
-### Phase 7: Project Likes, Comments, Edits (1 day)
+### Phase 7: Project Likes, Comments, Edits (2 days)
 
 **objective:** All projects can receive likes, comments, or edits.
 
