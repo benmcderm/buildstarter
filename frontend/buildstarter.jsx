@@ -18,6 +18,22 @@ const appRouter = {
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <Route path="/login" component={LoginForm} />
+      <Route path="/signup" component={LoginForm} />
     </Route>
   </Router>
 }
+
+function _ensureLoggedIn(nextstate, replace) {
+  if(SessionStore.isUserLoggedIn()) {
+    replace('/login');
+  }
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.currentUser) {
+    SessionActions.receiveCurrentUser(window.currentUser);
+  }
+
+  const root = document.getElementById('content');
+  ReactDOM.render(appRouter, root);
+})
