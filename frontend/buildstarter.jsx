@@ -14,20 +14,20 @@ const LoginForm = require('./components/login_form');
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
 
-const appRouter = {
+const appRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <Route path="/login" component={LoginForm} />
-      <Route path="/signup" component={LoginForm} />
+      <Route path="/sign-up" component={LoginForm} />
     </Route>
   </Router>
-}
+);
 
 function _ensureLoggedIn(nextstate, replace) {
   if(SessionStore.isUserLoggedIn()) {
     replace('/login');
   }
-};
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   if (window.currentUser) {
@@ -36,4 +36,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const root = document.getElementById('content');
   ReactDOM.render(appRouter, root);
-})
+});

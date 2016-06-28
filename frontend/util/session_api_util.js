@@ -6,9 +6,9 @@ const SessionApiUtil = {
       dataType: "json",
       data: { user },
       success,
-      error(err) {
-        const errors = err.responseJSON;
-        error("login", errors);
+      error(xhr) {
+        const errors = xhr.responseJSON;
+        error("signup", errors);
       }
     });
   },
@@ -19,8 +19,8 @@ const SessionApiUtil = {
       type: "POST",
       data: { user },
       success,
-      error(err) {
-        const errors = err.responseJSON;
+      error(xhr) {
+        const errors = xhr.responseJSON;
         error("login", errors);
       }
     });
