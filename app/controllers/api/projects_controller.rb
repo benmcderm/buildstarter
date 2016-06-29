@@ -17,15 +17,15 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:projects).permit(
-      name:,
-      description:,
-      street_address:,
-      city:,
-      state:,
-      zip_code:,
-      media_url:,
-      author_id:,
-      archived:
+      :name,
+      :description,
+      :street_address,
+      :city,
+      :state,
+      :zip_code,
+      :media_url,
+      :author_id,
+      :archived
       )
   end
 end
