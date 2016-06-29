@@ -19,6 +19,7 @@ const appRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={SplashPage} />
+      <Route path="/discover" component={BrowserApp} />
       <Route path="/login" component={LoginForm} />
       <Route path="/sign-up" component={LoginForm} />
     </Route>
