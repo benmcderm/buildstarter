@@ -49,9 +49,9 @@ BuildStarter is a web application inspired by Kickstarter that will be built usi
 
 - [x] create new project
 - [x] create `User` model
-- [ ] authentication
+- [x] authentication
 - [x] user signup/signin pages
-- [ ] blank landing page after signin
+- [x] blank landing page after signin
 
 ### Phase 2: Project Model, API, and basic APIUtil (1.5 days)
 
