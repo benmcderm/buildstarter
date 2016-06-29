@@ -19,8 +19,8 @@ const App = React.createClass({
     }
     return(
       <div>
-        { logoutButton }
         <NavBar />
+        { logoutButton }
         {this.props.children}
       </div>)
   }

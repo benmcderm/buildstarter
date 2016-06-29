@@ -43,6 +43,7 @@ img {
     max-width: 100%;
     height: auto;
     width: auto\9; /* ie8 */
+    position: relative;
 }
 
  /* navBar */
@@ -140,9 +141,21 @@ img {
 }
 
 /* navBar Dropdown */
-
 .logout-button {
   float: right;
+}
+
+/* Splash */
+
+.splash-header {
+  position: absolute;
+  top: 100px;
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-size: 55px;
+  font-family: 'Lato', sans-serif;
+  text-shadow: .5px .5px black;
 }
 
 /* Login Form */

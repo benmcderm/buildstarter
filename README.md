@@ -58,8 +58,8 @@ BuildStarter is a web application inspired by Kickstarter that will be built usi
 **Objective:** Projects can be created and read through
 the API.
 
-- [ ] create `Project` model
-- [ ] seed the database with a small amount of test data
+- [x] create `Project` model
+- [x] seed the database with a small amount of test data
 - [ ] CRUD API for projects (`ProjectController`)
 - [ ] jBuilder views for projects
 - [ ] setup Webpack & Flux scaffold
