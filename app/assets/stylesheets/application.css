@@ -39,6 +39,12 @@ h4 {
   font-family: 'Lato', sans-serif;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
  /* navBar */
 
 .navLeft {
@@ -117,6 +123,26 @@ h4 {
   margin-top: -3px;
   padding-right: 15px;
   text-decoration: none;
+}
+
+.user-dropdown {
+  display: none;
+  margin-top: -3px;
+  padding-right: 15px;
+  text-decoration: none;
+}
+
+.user-dropdown.selected {
+  display: block;
+  margin-top: -3px;
+  padding-right: 15px;
+  text-decoration: none;
+}
+
+/* navBar Dropdown */
+
+.logout-button {
+  float: right;
 }
 
 /* Login Form */

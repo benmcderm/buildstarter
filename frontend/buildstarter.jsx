@@ -10,6 +10,7 @@ const hashHistory = ReactRouter.hashHistory;
 //Components
 const App = require('./components/app');
 const LoginForm = require('./components/login_form');
+const SplashPage = require('./components/splash_page');
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
@@ -17,6 +18,7 @@ const SessionActions = require('./actions/session_actions');
 const appRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
+      <IndexRoute component={SplashPage} />
       <Route path="/login" component={LoginForm} />
       <Route path="/sign-up" component={LoginForm} />
     </Route>

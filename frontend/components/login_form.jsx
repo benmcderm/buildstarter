@@ -1,9 +1,30 @@
 const React = require('react');
+const Link = require('react-router').Link;
+const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
 
 const LoginForm = React.createClass({
+
+  contextTypes: {
+		router: React.PropTypes.object.isRequired
+	},
+
   getInitialState(){
     return({ username: "Username", password: "Password"});
+  },
+
+  componentDidMount(){
+    this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
+  },
+
+  componentWillUnmount(){
+    this.sessionListener.remove();
+  },
+
+  redirectIfLoggedIn() {
+    if (SessionStore.isUserLoggedIn) {
+      this.context.router.push("/")
+    }
   },
 
   passwordChange(e){
@@ -47,8 +68,15 @@ const LoginForm = React.createClass({
       <form onSubmit={this.handleSubmit}>
         <div className="login-form">
           {header}
-          <input className="login-username" type="text" value={this.state.username} onChange={this.usernameChange}  />
-          <input className="login-password" type="text" onChange={this.passwordChange} value={this.state.password} />
+          <input
+            className="login-username"
+            type="text"
+            value={this.state.username}
+            onChange={this.usernameChange}  />
+          <input className="login-password"
+            type="text"
+            value={this.state.password}
+            onChange={this.passwordChange} />
           {submitButton}
         </div>
       </form>
