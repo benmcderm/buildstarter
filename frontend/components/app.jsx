@@ -9,18 +9,10 @@ const SessionStore = require('../stores/session_store');
 const SplashPage = require('./splash_page')
 
 const App = React.createClass({
-  _handleLogOut(){
-   SessionActions.logOut();
- },
   render() {
-    let logoutButton;
-    if (SessionStore.isUserLoggedIn()) {
-      logoutButton = <input className="logout-button" type="submit" value="logout" onClick={ this._handleLogOut } />
-    }
     return(
       <div>
         <NavBar />
-        { logoutButton }
         {this.props.children}
       </div>)
   }
