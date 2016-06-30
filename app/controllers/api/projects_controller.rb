@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class Api::ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
     if @project
       render :show
     else
-      render json: @project.errors, status 404
+      "Error"
     end
   end
 

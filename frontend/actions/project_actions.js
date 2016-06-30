@@ -2,10 +2,23 @@ const SessionApiUtil = require('../util/session_api_util.js');
 const AppDispatcher = require('../dispatcher/dispatcher.js');
 const hashHistory = require('react-router').hashHistory;
 const SessionConstants = require('../constants/session_constants.js');
+const ProjectUtil = require('../util/project_util');
 
 const ProjectActions = {
 
-  receiveProjects(projects) {
+  fetchProject(id){
+    ProjectUtil.fetchProject(id);
+  },
+
+  fetchProjects(){
+    ProjectUtil.fetchProjects();
+  },
+
+  searchProjects(search){
+    ProjectUtil.searchProjects(search);
+  },
+
+  receiveProjects: function(projects) {
     AppDispatcher.dispatch({
       actionType: SessionConstants.RECEIVE_PROJECTS,
       projects: projects
@@ -27,4 +40,4 @@ const ProjectActions = {
   },
 };
 
-module.exports = SessionActions;
+module.exports = ProjectActions;

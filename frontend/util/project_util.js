@@ -1,11 +1,12 @@
+const ProjectActions = require('../actions/project_actions');
+
 const ProjectUtil = {
-  fetchProjects(projects) {
+  fetchProjects() {
     $.ajax({
       url: "/api/projects",
       dataType: "json",
-      data: { projects: projects },
-      success: function(projects) {
-        ProjectActions.receiveProjects(projects)
+      success(projects) {
+        ProjectActions.receiveProjects(projects);
       },
       error() {
         console.log('Error fetching Projects');
@@ -17,7 +18,7 @@ const ProjectUtil = {
     $.ajax({
       url: `/api/projects/${id}`,
       dataType: "json",
-      success: function(projects) {
+      success: function(project) {
         ProjectActions.receiveProject(project)
       },
       error() {

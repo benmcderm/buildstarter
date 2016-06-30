@@ -22,7 +22,7 @@ const removeProject = function(project) {
 };
 
 ProjectStore.all = function () {
-  results = [];
+  let results = [];
   for (var i in _projects) {
     if (_projects.hasOwnProperty(i)) {
       results.push(_projects[i]);
@@ -36,17 +36,15 @@ ProjectStore.__onDispatch = payload => {
   switch(payload.actionType) {
     case SessionConstants.RECEIVE_PROJECTS:
       resetProjects(payload.projects);
-      ProjectStore.__emitChange();
       break;
     case SessionConstants.RECEIVE_PROJECT:
     	resetProject(payload.project);
-      ProjectStore.__emitChange();
       break;
     case SessionConstants.RECEIVE_SEARCH:
-    	searchProjects(projects)
-      ProjectStore.__emitChange();
+    	searchProjects(payload.project)
       break;
   }
+  this.__emitChange();
 };
 
 module.exports = ProjectStore;

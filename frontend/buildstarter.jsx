@@ -11,9 +11,12 @@ const hashHistory = ReactRouter.hashHistory;
 const App = require('./components/app');
 const LoginForm = require('./components/login_form');
 const SplashPage = require('./components/splash_page');
+const BrowserApp = require('./components/browser_app')
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
+const ProjectActions = require('./actions/project_actions');
+const ProjectUtil = require('./util/project_util')
 
 const appRouter = (
   <Router history={hashHistory}>
@@ -31,6 +34,8 @@ function _ensureLoggedIn(nextstate, replace) {
     replace('/login');
   }
 }
+
+window.ProjectUtil = ProjectUtil;
 
 document.addEventListener("DOMContentLoaded", function () {
   if (window.currentUser) {
