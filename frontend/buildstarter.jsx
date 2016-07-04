@@ -18,12 +18,14 @@ const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
 const ProjectActions = require('./actions/project_actions');
 const ProjectUtil = require('./util/project_util.js')
+const ProjectDetail = require('./components/project_detail')
 
 const appRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={SplashPage} />
       <Route path="/discover" component={BrowserApp} />
+      <Route path="/discover/:projectId" component={ProjectDetail} />
       <Route path="/build" component={ProjectForm} />
       <Route path="/login" component={LoginForm} />
       <Route path="/sign-up" component={LoginForm} />

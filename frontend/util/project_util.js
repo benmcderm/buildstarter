@@ -26,6 +26,21 @@ const ProjectUtil = {
     });
   },
 
+  createProject(project, callback) {
+    $.ajax({
+      url: `/api/projects`,
+      type: "POST",
+      data: { project: project },
+      dataType: "json",
+      success: function(resp) {
+        callback(resp)
+      },
+      error() {
+        console.log('Error fetching Projects');
+      }
+    });
+  },
+
   searchProjects(search, callback) {
     $.ajax({
       url: "/api/projects",

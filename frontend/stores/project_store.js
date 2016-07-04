@@ -21,6 +21,10 @@ const removeProject = function(project) {
   delete _projects[project.id]
 };
 
+ProjectStore.find = function (id) {
+  return _projects[id];
+};
+
 ProjectStore.all = function () {
   let results = [];
   for (var i in _projects) {

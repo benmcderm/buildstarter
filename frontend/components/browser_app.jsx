@@ -5,7 +5,7 @@ const BrowserApp = React.createClass({
 
   render () {
     return (
-      <div>
+      <div className="browser-app">
         <BrowserIndex />
       </div>
     );

@@ -2,6 +2,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const NavBar = require('./navbar');
+const Footer = require('./footer');
 //Actions
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
@@ -14,6 +15,7 @@ const App = React.createClass({
       <div>
         <NavBar />
         {this.props.children}
+        <Footer />
       </div>)
   }
 });

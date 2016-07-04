@@ -38,8 +38,26 @@ main {
   margin: 0;
 }
 
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  background: #020621;
+  position: inherit;
+  left: 0;
+  bottom: 0;
+  max-height: 475px;
+  height: 750px;
+  width: 100%;
+  overflow:hidden;
+}
+
 .body {
   font-family: 'Lato', sans-serif;
+  padding: 0;
 }
 
 h2 {
@@ -118,7 +136,7 @@ img {
   margin-top: -3px;
   padding-right: 45px;
   padding-left: 15px;
-
+  box-sizing: border-box;
   text-decoration: none;
 }
 
@@ -167,6 +185,8 @@ img {
 /* navBar Dropdown */
 
 
+/* Footer */
+
 
 /* Splash */
 
@@ -185,9 +205,11 @@ img {
 
 .login-form {
   max-width: 400px;
+  height: 320px;
   margin: 25px auto;
   border: 1px solid #F1EEEA;
   border-radius: 2px;
+  padding-bottom: 55px;
 }
 
 .login-username {
@@ -208,27 +230,74 @@ img {
 }
 
 .login-submit {
-  width: 364px;
-  padding: 15px;
-  margin: 10px 20px;
-  height: 50px;
-  padding: 15px;
+  width: 350px;
+  float: right;
+  font-size: 16px;
+  color: white;
+  margin-right: 24px;
+  background-color: #2BDE73;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 6px;
+  cursor: pointer;
   display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  -webkit-appearance: none;
+}
+
+.login-submit:hover {
+  background-color: #1db95c;
+  color: #FFFFFF;
 }
 
 .signup-submit {
-  width: 364px;
-  padding: 15px;
-  margin: 10px 20px;
-  height: 50px;
-  padding: 15px;
+  width: 350px;
+  float: right;
+  font-size: 16px;
+  color: white;
+  margin-right: 24px;
+  background-color: #2BDE73;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 6px;
+  cursor: pointer;
   display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  -webkit-appearance: none;
+}
+
+.signup-submit:hover {
+  background-color: #1db95c;
+  color: #FFFFFF;
 }
 
 /* Project Form */
 
 .project-form {
   max-width: 400px;
+  height: 600px;
   margin: 25px auto;
   border: 1px solid #F1EEEA;
   border-radius: 2px;
@@ -243,6 +312,49 @@ img {
   font-size: 20px;
 }
 
+.form-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.create-project-button {
+  width: 350px;
+  float: right;
+  font-size: 16px;
+  color: white;
+  margin-right: 24px;
+  background-color: #2BDE73;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  -webkit-appearance: none;
+}
+
+.create-project-button:hover {
+  background-color: #1db95c;
+  color: #FFFFFF;
+}
+
+/* Browser App */
+
+
+.browser-app {
+  background-image: linear-gradient(#fff, #F7F5F2);
+}
 
 /* Project Browser */
 
@@ -266,6 +378,17 @@ img {
   width: 33.33333%;
 }
 
+.project-thumbnail-wrap {
+  overflow: hidden;
+  border-radius: 6px 6px 0 0;
+  height: 200px;
+}
+
+.project-thumbnail-img {
+  height: 200px;
+  border-radius: 6px 6px 0 0;
+}
+
 .project-card {
   height: 440px;
   background-color: #FFFFFF;
@@ -276,4 +399,61 @@ img {
   position: relative;
   font-size: 12px;
   font-family: 'Lato', sans-serif;
+}
+
+.project-card-content {
+  padding: 10px;
+}
+
+/* Project Detail */
+
+.project-detail {
+  max-width: 1040px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+.project-detail-title {
+  text-align: center;
+}
+
+.project-detail-media {
+  max-width: 640px;
+  max-height: 440px;
+  overflow: hidden;
+  margin-left: 50px;
+}
+
+.invest-button {
+  float: right;
+  font-size: 16px;
+  padding: 18px 30px;
+  padding-right: 100px;
+  margin-right: 80px;
+  margin-bottom: 40px;
+  color: white;
+  background-color: #2BDE73;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 10px 20px;
+  text-align: center;
+  -webkit-appearance: none;
+}
+
+.invest-button:hover {
+  background-color: #1db95c;
+  color: #FFFFFF;
 }

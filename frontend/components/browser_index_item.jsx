@@ -9,7 +9,9 @@ const BrowserIndexItem = React.createClass({
       <li className="project-list-item">
         <div className="project-card">
           <div className="project-card-thumbnail">
-
+            <Link to={`discover/${this.props.project.id}`} className="project-thumbnail-wrap">
+              <img alt="Project image" className="project-thumbnail-img" src={this.props.project.media_url} width="100%"></img>
+            </Link>
           </div>
 
           <div className="project-card-content">
