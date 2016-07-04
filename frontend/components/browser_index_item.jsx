@@ -8,8 +8,19 @@ const BrowserIndexItem = React.createClass({
     return (
       <li className="project-list-item">
         <div className="project-card">
-          {this.props.project.name}
-          {this.props.project.description}
+          <div className="project-card-thumbnail">
+
+          </div>
+
+          <div className="project-card-content">
+            <strong>{this.props.project.name}</strong>
+            <br></br>
+            {this.props.project.description}
+          </div>
+
+          <div className="project-card-footer">
+
+          </div>
         </div>
       </li>
     )
