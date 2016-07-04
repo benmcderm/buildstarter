@@ -1,0 +1,460 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+ .logout-button {
+   display: none;
+   float: right;
+   margin-top: -19px;
+   opacity: 0;
+ }
+
+.signout-link:hover .logout-button {
+   display: block;
+   z-index: 1;
+   width: 100px;
+   opacity: 1;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+ }
+
+ /* Body */
+main {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  background: #020621;
+  position: inherit;
+  left: 0;
+  bottom: 0;
+  max-height: 475px;
+  height: 750px;
+  width: 100%;
+  overflow:hidden;
+}
+
+.body {
+  font-family: 'Lato', sans-serif;
+  padding: 0;
+}
+
+h2 {
+  color: black;
+  font-family: 'Lato', sans-serif;
+}
+
+h3 {
+  color: black;
+  font-family: 'Lato', sans-serif;
+}
+
+h4 {
+  color: black;
+  font-family: 'Lato', sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    position: relative;
+}
+
+ /* navBar */
+
+.navLeft {
+  order: 1;
+  display: flex;
+  flex: 2;
+  flex-grow: 2;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  height: 60px;
+}
+
+.navMiddle {
+  order: 2;
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  justify-content: center;
+  height: 60px;
+}
+
+.navRight {
+  order: 3;
+  display: flex;
+  flex: 2;
+  flex-grow: 2;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  justify-content: flex-end;
+  height: 60px;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+.navBar {
+  width: 100%;
+  height: 60px;
+  flex-wrap: nowrap;
+  display: flex;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 10px 0 rgba(22,22,22,0.08);
+}
+
+/* navBar Links */
+
+.discover-link {
+  margin-top: -3px;
+  padding-right: 45px;
+  padding-left: 15px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.build-link {
+  margin-top: -3px;
+  text-decoration: none;
+}
+
+.header-link {
+  margin-top: -10px;
+  text-decoration: none;
+}
+
+.login-link {
+  margin-top: -3px;
+  padding-right: 45px;
+  text-decoration: none;
+}
+
+.signup-link {
+  margin-top: -3px;
+  padding-right: 15px;
+  text-decoration: none;
+}
+
+.signout-link {
+  margin-top: -3px;
+  padding-right: 15px;
+  text-decoration: none;
+}
+
+.user-dropdown {
+  display: none;
+  margin-top: -3px;
+  padding-right: 15px;
+  text-decoration: none;
+}
+
+.user-dropdown.selected {
+  display: block;
+  margin-top: -3px;
+  padding-right: 15px;
+  text-decoration: none;
+}
+
+/* navBar Dropdown */
+
+
+/* Footer */
+
+
+/* Splash */
+
+.splash-header {
+  position: absolute;
+  top: 100px;
+  text-align: center;
+  width: 100%;
+  color: white;
+  font-size: 55px;
+  font-family: 'Lato', sans-serif;
+  text-shadow: .5px .5px black;
+}
+
+/* Login Form */
+
+.login-form {
+  max-width: 400px;
+  height: 320px;
+  margin: 25px auto;
+  border: 1px solid #F1EEEA;
+  border-radius: 2px;
+  padding-bottom: 55px;
+}
+
+.login-username {
+  width: 330px;
+  padding: 15px;
+  margin: 10px 20px;
+}
+
+.login-password {
+  width: 330px;
+  padding: 15px;
+  margin: 10px 20px;
+}
+
+.login-form-title {
+  padding: 15px;
+  font-size: 30px;
+}
+
+.login-submit {
+  width: 350px;
+  float: right;
+  font-size: 16px;
+  color: white;
+  margin-right: 24px;
+  background-color: #2BDE73;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  -webkit-appearance: none;
+}
+
+.login-submit:hover {
+  background-color: #1db95c;
+  color: #FFFFFF;
+}
+
+.signup-submit {
+  width: 350px;
+  float: right;
+  font-size: 16px;
+  color: white;
+  margin-right: 24px;
+  background-color: #2BDE73;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  -webkit-appearance: none;
+}
+
+.signup-submit:hover {
+  background-color: #1db95c;
+  color: #FFFFFF;
+}
+
+/* Project Form */
+
+.project-form {
+  max-width: 400px;
+  height: 600px;
+  margin: 25px auto;
+  border: 1px solid #F1EEEA;
+  border-radius: 2px;
+  padding: 25px;
+  padding-top: 45px;
+}
+
+.project-form input {
+  margin: 10px 20px;
+  width: 330px;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.form-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.create-project-button {
+  width: 350px;
+  float: right;
+  font-size: 16px;
+  color: white;
+  margin-right: 24px;
+  background-color: #2BDE73;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  -webkit-appearance: none;
+}
+
+.create-project-button:hover {
+  background-color: #1db95c;
+  color: #FFFFFF;
+}
+
+/* Browser App */
+
+
+.browser-app {
+  background-image: linear-gradient(#fff, #F7F5F2);
+}
+
+/* Project Browser */
+
+.project-list {
+  max-width: 1040px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  display: flex;
+  padding: 30px 0 0 0;
+}
+
+.project-list-item {
+  list-style: none;
+  float: left;
+  position: relative;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  width: 33.33333%;
+}
+
+.project-thumbnail-wrap {
+  overflow: hidden;
+  border-radius: 6px 6px 0 0;
+  height: 200px;
+}
+
+.project-thumbnail-img {
+  height: 200px;
+  border-radius: 6px 6px 0 0;
+}
+
+.project-card {
+  height: 440px;
+  background-color: #FFFFFF;
+  border: solid 1px #F1EEEA;
+  border-radius: 6px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 12px;
+  font-family: 'Lato', sans-serif;
+}
+
+.project-card-content {
+  padding: 10px;
+}
+
+/* Project Detail */
+
+.project-detail {
+  max-width: 1040px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+
+.project-detail-title {
+  text-align: center;
+}
+
+.project-detail-media {
+  max-width: 640px;
+  max-height: 440px;
+  overflow: hidden;
+  margin-left: 50px;
+}
+
+.invest-button {
+  float: right;
+  font-size: 16px;
+  padding: 18px 30px;
+  padding-right: 100px;
+  margin-right: 80px;
+  margin-bottom: 40px;
+  color: white;
+  background-color: #2BDE73;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 10px 20px;
+  text-align: center;
+  -webkit-appearance: none;
+}
+
+.invest-button:hover {
+  background-color: #1db95c;
+  color: #FFFFFF;
+}
