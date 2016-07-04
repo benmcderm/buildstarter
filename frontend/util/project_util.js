@@ -1,12 +1,11 @@
-const ProjectActions = require('../actions/project_actions');
 
 const ProjectUtil = {
-  fetchProjects() {
+  fetchProjects(callback) {
     $.ajax({
       url: "/api/projects",
       dataType: "json",
-      success(projects) {
-        ProjectActions.receiveProjects(projects);
+      success: function(projects) {
+        callback(projects);
       },
       error() {
         console.log('Error fetching Projects');
@@ -14,12 +13,12 @@ const ProjectUtil = {
     });
   },
 
-  fetchProject(id) {
+  fetchProject(id, callback) {
     $.ajax({
       url: `/api/projects/${id}`,
       dataType: "json",
       success: function(project) {
-        ProjectActions.receiveProject(project)
+        callback(project)
       },
       error() {
         console.log('Error fetching Projects');
@@ -27,12 +26,12 @@ const ProjectUtil = {
     });
   },
 
-  searchProjects(search) {
+  searchProjects(search, callback) {
     $.ajax({
       url: "/api/projects",
       data: { search: search },
       success: function (projects) {
-        ProjectActions.receiveSearch(projects)
+        callback(projects)
       }
     });
   }

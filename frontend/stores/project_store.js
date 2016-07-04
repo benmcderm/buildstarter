@@ -32,19 +32,21 @@ ProjectStore.all = function () {
 };
 
 
-ProjectStore.__onDispatch = payload => {
+ProjectStore.__onDispatch = function(payload) {
   switch(payload.actionType) {
     case SessionConstants.RECEIVE_PROJECTS:
       resetProjects(payload.projects);
       break;
+
     case SessionConstants.RECEIVE_PROJECT:
     	resetProject(payload.project);
       break;
+
     case SessionConstants.RECEIVE_SEARCH:
     	searchProjects(payload.project)
       break;
   }
-  ProjectStore.__emitChange();
+  this.__emitChange();
 };
 
 module.exports = ProjectStore;

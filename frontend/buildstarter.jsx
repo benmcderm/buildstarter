@@ -12,17 +12,19 @@ const App = require('./components/app');
 const LoginForm = require('./components/login_form');
 const SplashPage = require('./components/splash_page');
 const BrowserApp = require('./components/browser_app')
+const ProjectForm = require('./components/project_form')
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
 const ProjectActions = require('./actions/project_actions');
-const ProjectUtil = require('./util/project_util')
+const ProjectUtil = require('./util/project_util.js')
 
 const appRouter = (
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={SplashPage} />
       <Route path="/discover" component={BrowserApp} />
+      <Route path="/build" component={ProjectForm} />
       <Route path="/login" component={LoginForm} />
       <Route path="/sign-up" component={LoginForm} />
     </Route>
@@ -34,8 +36,6 @@ function _ensureLoggedIn(nextstate, replace) {
     replace('/login');
   }
 }
-
-window.ProjectUtil = ProjectUtil;
 
 document.addEventListener("DOMContentLoaded", function () {
   if (window.currentUser) {

@@ -6,4 +6,4 @@ const SessionConstants = {
   RECEIVE_SEARCH: "RECEIVE_SEARCH"
 };
 
-module.exports = SessionConstants
+module.exports = SessionConstants;

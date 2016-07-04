@@ -8,7 +8,7 @@
 
 BuildStarter is a web application inspired by Kickstarter that will be built using Ruby on Rails and React.js.  BuildStarter allows users to crowdfund real estate investments.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-- [ ] New account creation, login, and guest/demo login
+- [x] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
 - [x] Hosting on Heroku
 - [ ] Projects

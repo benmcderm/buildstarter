@@ -14,7 +14,7 @@ const BrowserIndex = React.createClass({
 
   componentDidMount(){
     this.projectListener = ProjectStore.addListener(this.handleChange);
-    console.log(this.state.projects);
+    ProjectActions.fetchProjects();
   },
 
   componentWillUnmount(){
