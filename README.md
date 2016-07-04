@@ -71,15 +71,14 @@ the API.
 **Objective:** Projects can be created, read, and destroyed with the
 user interface.
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
+- [x] setup the flux loop with skeleton files
+- [x] setup React Router
 - implement each project component, building out the flux loop as needed.
-  - [ ] `BrowserSelector`
-  - [ ] `BrowserIndex`
-  - [ ] `BrowserIndexItem`
-  - [ ] `ProjectDetailIndex`
-  - [ ] `ProjectDetailIndexItem`
-  - [ ] `ProjectForm`
+  - [x] `BrowserApp`
+  - [x] `BrowserIndex`
+  - [x] `BrowserIndexItem`
+  - [x] `ProjectDetail`
+  - [x] `ProjectForm`
 - [ ] save Projects to the DB when the form loses focus or is left idle
   after editing.
 
@@ -89,7 +88,7 @@ user interface.
 
 - [ ] create a basic style guide
 - [ ] position elements on the page
-- [ ] add basic colors & styles
+- [x] add basic colors & styles
 
 ### Phase 5: Project creation and funding (1 day)
 
