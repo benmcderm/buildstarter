@@ -50,6 +50,16 @@ const LoginForm = React.createClass({
     }
   },
 
+  guestLogin(e) {
+    e.preventDefault();
+    this.setState({username: "benny", password:"benny123"});
+    const formData = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    SessionActions.logIn(formData);
+  },
+
   formType() {
     return this.props.location.pathname.slice(1);
   },
@@ -71,13 +81,14 @@ const LoginForm = React.createClass({
           <input
             className="login-username"
             type="text"
-            value={this.state.username}
+            placeholder="Username"
             onChange={this.usernameChange}  />
           <input className="login-password"
-            type="text"
-            value={this.state.password}
+            type="password"
+            placeholder="Password"
             onChange={this.passwordChange} />
           {submitButton}
+          <input type="submit" className="signup-submit" value="Guest Login" onClick={this.guestLogin}/>
         </div>
       </form>
     </div>)

@@ -8,11 +8,19 @@ const NavBar = React.createClass({
    SessionActions.logOut();
   },
 
+  getInitialState() {
+    return ({greeting: this.greeting()});
+  },
+
+  componentDidMount () {
+    this.setState({greeting: this.greeting()});
+  },
+
   greeting(){
     let navRight;
     if (SessionStore.isUserLoggedIn()) {
       navRight = <div className="navRight">
-        <Link to="api/users/show" className="signout-link">
+        <Link to="/" className="signout-link">
           <div className="logout-hover">
             <h4>{SessionStore.currentUser().username}</h4>
             <input className="logout-button" type="submit" value="Logout" onClick={ this._handleLogOut } />

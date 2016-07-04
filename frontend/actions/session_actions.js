@@ -29,7 +29,7 @@ const SessionActions = {
       actionType: SessionConstants.LOGOUT,
       currentUser: currentUser
     });
-    hashHistory.push("/login");
+    hashHistory.push("/");
   }
 };
 

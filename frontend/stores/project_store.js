@@ -44,7 +44,7 @@ ProjectStore.__onDispatch = payload => {
     	searchProjects(payload.project)
       break;
   }
-  this.__emitChange();
+  ProjectStore.__emitChange();
 };
 
 module.exports = ProjectStore;
