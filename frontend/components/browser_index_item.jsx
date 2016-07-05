@@ -4,6 +4,7 @@ const ReactDOM = require('react-dom');
 const Link = require('react-router').Link;
 
 const BrowserIndexItem = React.createClass({
+
   render() {
     return (
       <li className="project-list-item">
@@ -21,12 +22,20 @@ const BrowserIndexItem = React.createClass({
           </div>
 
           <div className="project-card-footer">
-
+            <div className="total-progress-bar">
+              <div className="progress-bar" style={{width:`${(this.props.project.investment / this.props.project.goal)*100}%`}}></div>
+            </div>
+            <h3>Investments: ${numberWithCommas(this.props.project.investment)}</h3>
+            <h3>Goal: ${numberWithCommas(this.props.project.goal)}</h3>
           </div>
         </div>
       </li>
     )
   }
 });
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 module.exports = BrowserIndexItem;

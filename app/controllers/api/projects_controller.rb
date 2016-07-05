@@ -16,7 +16,8 @@ class Api::ProjectsController < ApplicationController
       media_url: project_params[:media_url],
       author_id: project_params[:author_id],
       archived: project_params[:archived],
-      investment: project_params[:investment]
+      investment: project_params[:investment],
+      goal: project_params[:goal]
     )
     if @project.save
       render :show
@@ -57,7 +58,8 @@ class Api::ProjectsController < ApplicationController
       :author_id,
       :archived,
       :id,
-      :investment
+      :investment,
+      :goal
       )
   end
 end

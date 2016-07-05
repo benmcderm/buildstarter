@@ -8,6 +8,7 @@ class Project < ActiveRecord::Base
           :media_url,
           :author_id,
           :investment,
+          :goal,
           presence: true
   validates :name, uniqueness: true
 
@@ -15,5 +16,10 @@ class Project < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :author_id,
   class_name: "User"
+
+  has_many :investments,
+  primary_key: :id,
+  foreign_key: :project_id,
+  class_name: "Investment"
 
 end

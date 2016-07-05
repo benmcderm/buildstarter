@@ -8,4 +8,5 @@ json.array! @projects, :id,
                         :media_url,
                         :author_id,
                         :archived,
-                        :investment
+                        :investment,
+                        :goal
