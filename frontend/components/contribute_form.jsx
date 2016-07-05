@@ -10,7 +10,7 @@ const ProjectStore = require('../stores/project_store');
 
 function numberWithCommas(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+};
 
 const ContributeForm = React.createClass({
   getInitialState(){
@@ -38,7 +38,7 @@ const ContributeForm = React.createClass({
     return(
       <div className="contribution-form-container">
         <form onSubmit={this.handleSubmit} className="project-contribution">
-          <input onChange={this.investmentChange} type="currency" placeholder="Investment Amount" value={this.state.investment}/>
+          <input onChange={this.investmentChange} type="currency" className="investment-field" placeholder="Investment Amount" value={this.state.investment}/>
           <h3 className="investment-stat">Investments: ${this.props.project.investment}</h3>
           <h3 className="goal-stat">Goal: ${this.props.project.goal}</h3>
           <input type="submit" className="invest-project-button" value="Invest in Project" />

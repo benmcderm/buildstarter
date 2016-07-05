@@ -6,6 +6,16 @@ const Link = require('react-router').Link;
 const BrowserIndexItem = React.createClass({
 
   render() {
+    let goalPercent;
+    let goalPercentage = (this.props.project.investment / this.props.project.goal)*100;
+    if(goalPercentage < 0) {
+      goalPercent = 0;
+    } else if (goalPercentage < 100) {
+      goalPercent = goalPercentage
+    }
+      else {
+      goalPercent = 100;
+    }
     return (
       <li className="project-list-item">
         <div className="project-card">
@@ -23,10 +33,11 @@ const BrowserIndexItem = React.createClass({
 
           <div className="project-card-footer">
             <div className="total-progress-bar">
-              <div className="progress-bar" style={{width:`${(this.props.project.investment / this.props.project.goal)*100}%`}}></div>
+              <div className="progress-bar" style={{width:`${goalPercent}%`}}></div>
             </div>
             <h3>Investments: ${numberWithCommas(this.props.project.investment)}</h3>
             <h3>Goal: ${numberWithCommas(this.props.project.goal)}</h3>
+
           </div>
         </div>
       </li>
