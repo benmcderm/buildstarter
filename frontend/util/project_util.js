@@ -36,7 +36,7 @@ const ProjectUtil = {
         callback(resp)
       },
       error() {
-        console.log('Error fetching Projects');
+        console.log('Error creating Project');
       }
     });
   },

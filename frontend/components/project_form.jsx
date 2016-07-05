@@ -1,8 +1,17 @@
 const React = require('react');
+const SessionStore = require('../stores/session_store');
+const ProjectActions = require('../actions/project_actions');
+const ReactRouter = require('react-router');
+const Router = ReactRouter.Router;
+const Route = ReactRouter.Route;
+const IndexRoute = ReactRouter.IndexRoute;
+const hashHistory = ReactRouter.hashHistory;
+
 
 const ProjectForm = React.createClass({
   getInitialState(){
-    return ({ name: "", description:"", street_address:"", city:"", state:"", zip_code:"", media_url:"", author_id:"", archived:false})
+    const currentUserId = SessionStore.currentUser().id;
+    return ({ name: "", description:"", street_address:"", city:"", state:"", zip_code:"", media_url:"", author_id:currentUserId, archived:false})
   },
 
   handleSubmit(e){
@@ -18,7 +27,8 @@ const ProjectForm = React.createClass({
      author_id: this.state.author_id,
      archived: this.state.archived
     }
-
+    ProjectActions.createProject(projectData);
+    hashHistory.push("/");
   },
 
   nameChange(e) {
@@ -27,27 +37,33 @@ const ProjectForm = React.createClass({
   },
 
   streetChange(e) {
-
+    e.preventDefault();
+    this.setState({street_address: e.target.value})
   },
 
   cityChange(e) {
-
+    e.preventDefault();
+    this.setState({city: e.target.value})
   },
 
   stateChange(e) {
-
+    e.preventDefault();
+    this.setState({state: e.target.value})
   },
 
   zipChange(e) {
-
+    e.preventDefault();
+    this.setState({zip_code: e.target.value})
   },
 
   descriptionChange(e) {
-
+    e.preventDefault();
+    this.setState({description: e.target.value})
   },
 
-  nameChange(e) {
-
+  mediaChange(e) {
+    e.preventDefault();
+    this.setState({media_url: e.target.value})
   },
 
   render() {
@@ -55,14 +71,13 @@ const ProjectForm = React.createClass({
       <div className="form-container">
         <h2>Create a New Project</h2>
         <form onSubmit={this.handleSubmit} className="project-form">
-          <input onChange={this.nameChange} type="text" placeholder="Project Name" />
+          <input onChange={this.nameChange} type="text" placeholder="Project Name" value={this.state.name}/>
           <input onChange={this.streetChange} type="text" placeholder="Street Address" />
           <input onChange={this.cityChange} type="text" placeholder="City" />
           <input onChange={this.stateChange} type="text" placeholder="State" />
           <input onChange={this.zipChange} type="text" placeholder="Zip Code" />
           <input onChange={this.descriptionChange} type="text" placeholder="Description" />
-          <input onChange={this.nameChange} type="text" placeholder="Upload" />
-          <input type="hidden" value={this.currentUser} />
+          <input onChange={this.mediaChange} type="text" placeholder="Image / Video URL" />
           <input type="submit" className="create-project-button" value="Create Project" />
         </form>
       </div>

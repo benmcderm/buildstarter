@@ -36,7 +36,7 @@ class Api::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:projects).permit(
+    params.require(:project).permit(
       :name,
       :description,
       :street_address,

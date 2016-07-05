@@ -26,20 +26,22 @@ const ProjectDetail = React.createClass({
   render() {
     return (
       <div className="project-detail">
-        <h1 className="project-detail-title">{this.state.project.name}</h1>
+        <div className="project-detail-content">
+          <h1 className="project-detail-title">{this.state.project.name}</h1>
 
-        <div className="project-detail-media">
-          <img alt="Project image" className="project-media" src={this.state.project.media_url}></img>
-        </div>
+          <div className="project-detail-media">
+            <img alt="Project image" className="project-media" src={this.state.project.media_url}></img>
+            <div className="project-detail-description">
+              {this.state.project.description}
+            </div>
+          </div>
 
-        <div className="project-detail-stats">
+          <div className="project-detail-stats">
 
-        </div>
+          </div>
 
-        <button className="invest-button">Invest</button>
+          <button className="invest-button">Invest</button>
 
-        <div className="project-detail-description">
-          {this.state.project.description}
         </div>
       </div>
     )

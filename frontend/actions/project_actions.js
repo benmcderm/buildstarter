@@ -18,6 +18,10 @@ const ProjectActions = {
     ProjectUtil.searchProjects(search, this.receiveSearch);
   },
 
+  createProject(project){
+    ProjectUtil.createProject(project, this.receiveProject);
+  },
+
   receiveProjects(projects) {
     AppDispatcher.dispatch({
       actionType: SessionConstants.RECEIVE_PROJECTS,
