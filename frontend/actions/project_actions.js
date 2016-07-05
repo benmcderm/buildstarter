@@ -22,6 +22,10 @@ const ProjectActions = {
     ProjectUtil.createProject(project, this.receiveProject);
   },
 
+  updateProject(project){
+    ProjectUtil.updateProject(project, this.receiveProject);
+  },
+
   receiveProjects(projects) {
     AppDispatcher.dispatch({
       actionType: SessionConstants.RECEIVE_PROJECTS,

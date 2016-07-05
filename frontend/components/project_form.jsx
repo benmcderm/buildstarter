@@ -11,7 +11,7 @@ const hashHistory = ReactRouter.hashHistory;
 const ProjectForm = React.createClass({
   getInitialState(){
     const currentUserId = SessionStore.currentUser().id;
-    return ({ name: "", description:"", street_address:"", city:"", state:"", zip_code:"", media_url:"", author_id:currentUserId, archived:false})
+    return ({ name: "", description:"", investment: 0, street_address:"", city:"", state:"", zip_code:"", media_url:"", author_id:currentUserId, archived:false})
   },
 
   handleSubmit(e){

@@ -41,6 +41,21 @@ const ProjectUtil = {
     });
   },
 
+  updateProject(project, callback) {
+    $.ajax({
+      url: `/api/projects/${project.id}`,
+      type: "PATCH",
+      data: { project: project },
+      dataType: "json",
+      success: function(resp) {
+        callback(resp)
+      },
+      error() {
+        console.log('Error updating Project');
+      }
+    });
+  },
+
   searchProjects(search, callback) {
     $.ajax({
       url: "/api/projects",

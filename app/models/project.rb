@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
           :zip_code,
           :media_url,
           :author_id,
+          :investment,
           presence: true
   validates :name, uniqueness: true
 

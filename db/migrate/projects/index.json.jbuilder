@@ -7,5 +7,4 @@ json.array! @projects, :id,
                         :zip_code,
                         :media_url,
                         :author_id,
-                        :archived,
-                        :investment
+                        :archived

@@ -15,12 +15,22 @@ class Api::ProjectsController < ApplicationController
       zip_code: project_params[:zip_code],
       media_url: project_params[:media_url],
       author_id: project_params[:author_id],
-      archived: project_params[:archived]
+      archived: project_params[:archived],
+      investment: project_params[:investment]
     )
     if @project.save
       render :show
     else
       render json: @project.errors, status: 422
+    end
+  end
+
+  def update
+    @project = Project.find_by_id(params[:id])
+    if @project.update_attributes(project_params)
+      render :show
+    else
+      "Error"
     end
   end
 
@@ -45,7 +55,9 @@ class Api::ProjectsController < ApplicationController
       :zip_code,
       :media_url,
       :author_id,
-      :archived
+      :archived,
+      :id,
+      :investment
       )
   end
 end

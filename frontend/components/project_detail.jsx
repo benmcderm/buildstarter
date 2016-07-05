@@ -4,6 +4,7 @@ const ReactDOM = require('react-dom');
 const Link = require('react-router').Link;
 const ProjectStore = require('../stores/project_store');
 const ProjectActions = require('../actions/project_actions');
+const ContributeForm = require('./contribute_form')
 
 const ProjectDetail = React.createClass({
   getInitialState() {
@@ -39,9 +40,7 @@ const ProjectDetail = React.createClass({
           <div className="project-detail-stats">
 
           </div>
-
-          <button className="invest-button">Invest</button>
-
+            <ContributeForm project={this.state.project}/>
         </div>
       </div>
     )
