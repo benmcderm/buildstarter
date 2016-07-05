@@ -69,7 +69,7 @@ const ProjectForm = React.createClass({
   render() {
     return(
       <div className="form-container">
-        <h2>Create a New Project</h2>
+        <h2 className="form-title">Create a New Project</h2>
         <form onSubmit={this.handleSubmit} className="project-form">
           <input onChange={this.nameChange} type="text" placeholder="Project Name" value={this.state.name}/>
           <input onChange={this.streetChange} type="text" placeholder="Street Address" />
