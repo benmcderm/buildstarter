@@ -52,7 +52,7 @@ const LoginForm = React.createClass({
 
   guestLogin(e) {
     e.preventDefault();
-    this.setState({username: "benny", password:"benny123"});
+    this.setState({username: "guest", password:"password"});
     const formData = {
       username: this.state.username,
       password: this.state.password
