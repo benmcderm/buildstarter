@@ -10,12 +10,15 @@ const hashHistory = ReactRouter.hashHistory;
 
 const ProjectForm = React.createClass({
   getInitialState(){
-    const currentUserId = SessionStore.currentUser().id;
-    return ({ name: "", description:"", investment: 0, street_address:"", city:"", state:"", zip_code:"", media_url:"", author_id:currentUserId, archived:false})
+    let currentUserId = SessionStore.currentUser().id;
+    return ({ name: "", description:"", investment: 0, goal: "", street_address:"", city:"", state:"", zip_code:"", media_url:"", author_id:currentUserId, archived:false, errors: ""})
   },
 
   handleSubmit(e){
     e.preventDefault();
+    if (!SessionStore.currentUser()) {
+      this.setState({errors: "You must log in to create a project."})
+    } else {
     const projectData = {
      name: this.state.name,
      description: this.state.description,
@@ -25,10 +28,13 @@ const ProjectForm = React.createClass({
      zip_code: this.state.zip_code,
      media_url: this.state.media_url,
      author_id: this.state.author_id,
-     archived: this.state.archived
+     archived: this.state.archived,
+     goal: this.state.goal,
+     investment: this.state.investment
     }
     ProjectActions.createProject(projectData);
     hashHistory.push("/");
+  }
   },
 
   nameChange(e) {
@@ -66,16 +72,23 @@ const ProjectForm = React.createClass({
     this.setState({media_url: e.target.value})
   },
 
+  goalChange(e) {
+    e.preventDefault();
+    this.setState({goal: e.target.value})
+  },
+
   render() {
     return(
       <div className="form-container">
         <h2 className="form-title">Create a New Project</h2>
+        <div className="form-errors">{this.state.errors}</div>
         <form onSubmit={this.handleSubmit} className="project-form">
           <input onChange={this.nameChange} type="text" placeholder="Project Name" value={this.state.name}/>
           <input onChange={this.streetChange} type="text" placeholder="Street Address" />
           <input onChange={this.cityChange} type="text" placeholder="City" />
           <input onChange={this.stateChange} type="text" placeholder="State" />
           <input onChange={this.zipChange} type="text" placeholder="Zip Code" />
+          <input onChange={this.goalChange} type="text" placeholder="Goal" />
           <input onChange={this.descriptionChange} type="text" placeholder="Description" />
           <input onChange={this.mediaChange} type="text" placeholder="Image / Video URL" />
           <input type="submit" className="create-project-button" value="Create Project" />
