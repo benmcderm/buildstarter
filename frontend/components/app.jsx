@@ -7,16 +7,40 @@ const Footer = require('./footer');
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
 //Components
-const SplashPage = require('./splash_page')
+const SplashPage = require('./splash_page');
+const SearchIndex = require('./search_index');
 
 const App = React.createClass({
+  getInitialState () {
+    return({searchActive: false, searchQuery: ""});
+  },
+
+  onSearchWasClicked (e) {
+    e.preventDefault();
+    this.setState({searchActive: !this.state.searchActive});
+  },
+
+  onSearchWasChanged (e) {
+    console.log("we changed in the app");
+    this.setState({searchQuery: e.currentTarget.value})
+  },
+
   render() {
+    if (this.state.searchActive) {
+      return(
+        <div>
+          <NavBar onSearchClick={this.onSearchWasClicked} onSearchChange={this.onSearchWasChanged} />
+          <SearchIndex queryString={this.state.searchQuery} />
+          <Footer />
+        </div>)
+    } else {
     return(
       <div>
-        <NavBar />
+        <NavBar onSearchClick={this.onSearchWasClicked} onSearchChange={this.onSearchWasChanged} />
         {this.props.children}
         <Footer />
       </div>)
+    }
   }
 });
 

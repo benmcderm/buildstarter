@@ -31,10 +31,12 @@ const NavBar = React.createClass({
 
   handleSearchClick(e) {
     e.preventDefault();
+    this.props.onSearchClick(e);
     if (this.search === "-hidden") {
       this.nav = "-hidden";
       this.search = "";
       this.setState({searchState: "search-navbar"});
+      $('.search-input').focus()
     } else {
       this.nav = "";
       this.search = "-hidden";
@@ -44,12 +46,7 @@ const NavBar = React.createClass({
 
   handleSearch(e){
     e.preventDefault();
-    if (e.target.value) {
-      this.setState({input: e.target.value});
-      ProjectActions.searchProjects(e.target.value);
-   } else {
-     this.setState({results: [], input: ""});
-   }
+    this.props.onSearchChange(e);
   },
 
   greeting(){

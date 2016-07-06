@@ -11,18 +11,18 @@ BuildStarter is a web application inspired by Kickstarter that will be built usi
 - [x] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
 - [x] Hosting on Heroku
-- [ ] Projects
+- [x] Projects
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Ability to back a Project / Choose a price level
+- [x] Ability to back a Project / Choose a price level
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Ability to search for Projects
-  - [ ] Smooth, bug-free navigation
+- [x] Ability to search for Projects
+  - [x] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
+  - [x] Adequate CSS styling
 -  [ ] Categories for projects
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
@@ -86,8 +86,8 @@ user interface.
 
 **Objective:** Existing pages (including signup/signin) will look good.
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
+- [x] create a basic style guide
+- [x] position elements on the page
 - [x] add basic colors & styles
 
 ### Phase 5: Project creation and funding (1 day)
@@ -97,7 +97,7 @@ user interface.
 - build out API, Flux loop, and components for:
   - [ ] ProjectFormTabs
   - [ ] ProjectFormTabItem
-  - [ ] ContributeForm
+  - [x] ContributeForm
 
 - Use CSS to style new views
 
@@ -107,8 +107,8 @@ user interface.
 
 - [ ] create `Tag` model and join table
 - build out Flux loop, and components for:
-  - [ ] SplashIndex
-  - [ ] SplashIndexItem
+  - [x] SplashIndex
+  - [x] SplashIndexItem
 - Use CSS to style new views
 
 ### Phase 7: Project Likes, Comments, Edits (2 days)
