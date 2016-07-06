@@ -5,11 +5,19 @@ const SessionConstants = require('../constants/session_constants')
 const ProjectStore = new Store(AppDispatcher);
 
 let _projects = {};
+let _search = {};
 
 const resetProjects = function(projects) {
   _projects = {};
   for (var i = 0; i < projects.length; i++) {
     _projects[projects[i].id] = projects[i];
+  }
+};
+
+const searchProjects = function(projects) {
+  _search = {};
+  for (var i = 0; i < projects.length; i++) {
+    _search[projects[i].id] = projects[i];
   }
 };
 
