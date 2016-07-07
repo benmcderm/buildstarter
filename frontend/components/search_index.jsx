@@ -38,8 +38,7 @@ const SearchIndex = React.createClass({
     let matchedProjects = [];
     let allProjects = this.state.projects;
     Object.keys(allProjects).forEach((key)=> {
-      console.log(allProjects[key]);
-      if(allProjects[key].name.toLowerCase().includes(string.toLowerCase()))
+      if(allProjects[key].name.toLowerCase().includes(string.toLowerCase()) || allProjects[key].description.toLowerCase().includes(string.toLowerCase()))
         matchedProjects.push(allProjects[key]);
     })
     this.setState({results: matchedProjects});
@@ -54,7 +53,7 @@ const SearchIndex = React.createClass({
     return (<ul className="project-list">
       {
         this.state.results.map((mapped_project) => {
-          return (<SearchIndexItem key={mapped_project.id} project={mapped_project} />)
+          return (<SearchIndexItem disableSearch={this.props.disableSearch} key={mapped_project.id} project={mapped_project} />)
         })
       }
       </ul>

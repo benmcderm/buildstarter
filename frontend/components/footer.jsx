@@ -8,16 +8,60 @@ const Footer = React.createClass({
       <footer className="footer">
         <div className="footer-total">
           <div className="footer-left-links">
-            <h3 className="footer-title">About</h3>
+            <h3 className="footer-title">About Us</h3>
             <ul className="footer-list">
               <li>
-                These Things
+                What is Buildstarter?
               </li>
               <li>
-                Will Be
+                Who we are
               </li>
               <li>
-                Links
+                Jobs
+              </li>
+              <li>
+                Press
+              </li>
+              <li>
+                Stats
+              </li>
+              <li>
+                Newsletters
+              </li>
+              <li>
+                Spotlight
+              </li>
+            </ul>
+          </div>
+          <div className="footer-left-links">
+            <h3 className="footer-title">Help</h3>
+            <ul className="footer-list">
+              <li>
+                FAQ
+              </li>
+              <li>
+                Our Rules
+              </li>
+              <li>
+                Creator Handbook
+              </li>
+              <li>
+                Campus
+              </li>
+              <li>
+                Trust & Safety
+              </li>
+              <li>
+                Support
+              </li>
+              <li>
+                Terms of Use
+              </li>
+              <li>
+                Privacy Policy
+              </li>
+              <li>
+                Cookie Policy
               </li>
             </ul>
           </div>
@@ -25,7 +69,21 @@ const Footer = React.createClass({
             <h3 className="footer-title">Hello</h3>
             <ul className="footer-list">
               <li>
-                Test right
+                Blog
+              </li>
+            </ul>
+          </div>
+          <div className="footer-right-links">
+            <h3 className="footer-title">Discover</h3>
+            <ul className="footer-list">
+              <li>
+                Apartment Buildings
+              </li>
+              <li>
+                Commercial Buildings
+              </li>
+              <li>
+                Residential Buildings
               </li>
             </ul>
           </div>

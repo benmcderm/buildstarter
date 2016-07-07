@@ -5,42 +5,32 @@ const ProjectStore = require('../stores/project_store');
 const SessionActions = require('../actions/session_actions');
 const ProjectActions = require('../actions/project_actions');
 
+
 const NavBar = React.createClass({
   _handleLogOut () {
    SessionActions.logOut();
   },
 
   getInitialState() {
-    return ({greeting: this.greeting(), searchState: "", input:"", results: "", suggestion:""});
+    return ({greeting: this.greeting()});
   },
 
   componentDidMount () {
     this.nav = "";
     this.search = "-hidden";
-    this.projectListener = ProjectStore.addListener(this.onProjectChange);
-    this.setState({greeting: this.greeting(), searchState: "-hidden"});
-  },
-
-  componentWillUnmount(){
-    this.projectListener.remove();
-  },
-
-  onProjectChange(){
-
+    this.setState({greeting: this.greeting()});
   },
 
   handleSearchClick(e) {
-    e.preventDefault();
+    console.log("clicked search");
     this.props.onSearchClick(e);
-    if (this.search === "-hidden") {
+    if (this.props.searchState() === "-hidden") {
       this.nav = "-hidden";
       this.search = "";
-      this.setState({searchState: "search-navbar"});
       $('.search-input').focus()
     } else {
       this.nav = "";
       this.search = "-hidden";
-      this.setState({searchState: "search-navbar-hidden"});
     }
   },
 
@@ -90,7 +80,7 @@ const NavBar = React.createClass({
         </div>
         { navRight }
         <div className={`search-navbar${this.search}`}>
-          <input className="search-input" onChange={this.handleSearch} type="text" placeholder="Search"></input>
+          <input className="search-input" onChange={this.handleSearch} onKeyDown={this.handleEscape} type="text" placeholder="Search"></input>
             <a onClick={this.handleSearchClick} className="nav-search-active" href="#">
               <img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467822040/magnifying-glass_rjnbyg.svg"
                    height="18px"

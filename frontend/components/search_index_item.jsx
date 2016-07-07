@@ -2,8 +2,17 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const Link = require('react-router').Link;
+const ReactRouter = require('react-router');
+const Router = ReactRouter.Router;
+const Route = ReactRouter.Route;
+const IndexRoute = ReactRouter.IndexRoute;
+const hashHistory = ReactRouter.hashHistory;
 
 const SearchIndexItem = React.createClass({
+  detailClick(e) {
+    this.props.disableSearch(e);
+    hashHistory.push(`discover/${this.props.project.id}`)
+  },
 
   render() {
     let goalPercent;
@@ -21,7 +30,7 @@ const SearchIndexItem = React.createClass({
         <div className="project-card">
           <div className="project-card-thumbnail">
             <Link to={`discover/${this.props.project.id}`} className="project-thumbnail-wrap">
-              <img alt="Project image" className="project-thumbnail-img" src={this.props.project.media_url} width="100%"></img>
+              <img onClick={this.detailClick} alt="Project image" className="project-thumbnail-img" src={this.props.project.media_url} width="100%"></img>
             </Link>
           </div>
 

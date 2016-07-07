@@ -3,6 +3,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const NavBar = require('./navbar');
 const Footer = require('./footer');
+const hashHistory = require('react-router').hashHistory;
 //Actions
 const SessionActions = require('../actions/session_actions');
 const SessionStore = require('../stores/session_store');
@@ -16,27 +17,37 @@ const App = React.createClass({
   },
 
   onSearchWasClicked (e) {
-    e.preventDefault();
-    this.setState({searchActive: !this.state.searchActive});
+    this.setState({searchActive: !this.state.searchActive, searchQuery: ""});
+    if(!this.state.searchActive){
+      this.setState({searchQuery: ""});
+      hashHistory.push('/');
+    }
+  },
+
+  getSearchState(){
+    return this.state.searchActive ? "" : "-hidden";
   },
 
   onSearchWasChanged (e) {
-    console.log("we changed in the app");
-    this.setState({searchQuery: e.currentTarget.value})
+    this.setState({searchQuery: e.target.value})
+  },
+
+  disableSearch(e){
+    this.setState({searchActive: false, searchQuery: ""});
   },
 
   render() {
     if (this.state.searchActive) {
       return(
         <div>
-          <NavBar onSearchClick={this.onSearchWasClicked} onSearchChange={this.onSearchWasChanged} />
-          <SearchIndex queryString={this.state.searchQuery} />
+          <NavBar onSearchClick={this.onSearchWasClicked} onSearchChange={this.onSearchWasChanged} searchState={this.getSearchState}/>
+          <SearchIndex queryString={this.state.searchQuery} disableSearch={this.disableSearch} />
           <Footer />
         </div>)
     } else {
     return(
       <div>
-        <NavBar onSearchClick={this.onSearchWasClicked} onSearchChange={this.onSearchWasChanged} />
+        <NavBar onSearchClick={this.onSearchWasClicked} onSearchChange={this.onSearchWasChanged} searchState={this.getSearchState} />
         {this.props.children}
         <Footer />
       </div>)
