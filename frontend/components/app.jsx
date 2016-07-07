@@ -22,6 +22,7 @@ const App = React.createClass({
       this.setState({searchQuery: ""});
       hashHistory.push('/');
     }
+    this.setState({searchQuery: ""});
   },
 
   getSearchState(){
@@ -40,14 +41,14 @@ const App = React.createClass({
     if (this.state.searchActive) {
       return(
         <div>
-          <NavBar onSearchClick={this.onSearchWasClicked} onSearchChange={this.onSearchWasChanged} searchState={this.getSearchState}/>
+          <NavBar onSearchClick={this.onSearchWasClicked} onSearchChange={this.onSearchWasChanged} searchState={this.getSearchState} queryString={this.state.searchQuery} />
           <SearchIndex queryString={this.state.searchQuery} disableSearch={this.disableSearch} />
           <Footer />
         </div>)
     } else {
     return(
       <div>
-        <NavBar onSearchClick={this.onSearchWasClicked} onSearchChange={this.onSearchWasChanged} searchState={this.getSearchState} />
+        <NavBar onSearchClick={this.onSearchWasClicked} onSearchChange={this.onSearchWasChanged} searchState={this.getSearchState} queryString={this.state.searchQuery} />
         {this.props.children}
         <Footer />
       </div>)

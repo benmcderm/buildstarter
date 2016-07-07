@@ -25,8 +25,6 @@ const ProjectDetail = React.createClass({
   },
 
   render() {
-    console.log('detail rendered')
-    
     return (
       <div className="project-detail">
         <div className="project-detail-content">

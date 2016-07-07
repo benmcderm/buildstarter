@@ -16,21 +16,13 @@ const NavBar = React.createClass({
   },
 
   componentDidMount () {
-    this.nav = "";
-    this.search = "-hidden";
     this.setState({greeting: this.greeting()});
   },
 
   handleSearchClick(e) {
-    console.log("clicked search");
     this.props.onSearchClick(e);
     if (this.props.searchState() === "-hidden") {
-      this.nav = "-hidden";
-      this.search = "";
       $('.search-input').focus()
-    } else {
-      this.nav = "";
-      this.search = "-hidden";
     }
   },
 
@@ -42,7 +34,7 @@ const NavBar = React.createClass({
   greeting(){
     let navRight;
     if (SessionStore.isUserLoggedIn()) {
-      navRight = <div className={`navRight${this.nav}`}>
+      navRight = <div className={`navRight`}>
         <a onClick={this.handleSearchClick} className="nav-search" href="#">
           <img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467822040/magnifying-glass_rjnbyg.svg"
                height="18px"
@@ -57,7 +49,7 @@ const NavBar = React.createClass({
         </Link>
       </div>;
     } else {
-      navRight = <div className={`navRight${this.nav}`}>
+      navRight = <div className={`navRight`}>
         <a onClick={this.handleSearchClick} className="nav-search" href="#">
           <img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467822040/magnifying-glass_rjnbyg.svg"
                height="18px"
@@ -70,17 +62,17 @@ const NavBar = React.createClass({
     }
 
   	return (
-      <header className={`navBar${this.nav}`}>
-        <div className={`navLeft${this.nav}`}>
+      <header className={`navBar`}>
+        <div className={`navLeft`}>
           <Link to="/discover" className="discover-link"><h4>Discover</h4></Link>
           <Link to="/build" className="build-link"><h4>Build</h4></Link>
         </div>
-        <div className={`navMiddle${this.nav}`}>
+        <div className={`navMiddle`}>
           <Link to="/" className="header-link"><h2>BuildStarter</h2></Link>
         </div>
         { navRight }
-        <div className={`search-navbar${this.search}`}>
-          <input className="search-input" onChange={this.handleSearch} onKeyDown={this.handleEscape} type="text" placeholder="Search"></input>
+        <div className={`search-navbar${this.props.searchState()}`}>
+          <input className="search-input" onChange={this.handleSearch} onKeyDown={this.handleEscape} type="text" placeholder="Search" value={this.props.queryString}></input>
             <a onClick={this.handleSearchClick} className="nav-search-active" href="#">
               <img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467822040/magnifying-glass_rjnbyg.svg"
                    height="18px"
