@@ -17,7 +17,9 @@ class Api::ProjectsController < ApplicationController
       author_id: project_params[:author_id],
       archived: project_params[:archived],
       investment: project_params[:investment],
-      goal: project_params[:goal]
+      goal: project_params[:goal],
+      rating: project_params[:rating],
+      end_date: project_params[:end_date]
     )
     if @project.save
       render :show
@@ -59,7 +61,9 @@ class Api::ProjectsController < ApplicationController
       :archived,
       :id,
       :investment,
-      :goal
+      :goal,
+      :rating,
+      :end_date
       )
   end
 end

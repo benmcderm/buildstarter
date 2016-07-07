@@ -9,4 +9,6 @@ json.array! @projects, :id,
                         :author_id,
                         :archived,
                         :investment,
-                        :goal
+                        :goal,
+                        :rating,
+                        :end_date

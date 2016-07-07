@@ -4,6 +4,7 @@ const SessionStore = require('../stores/session_store');
 const ProjectStore = require('../stores/project_store');
 const SessionActions = require('../actions/session_actions');
 const ProjectActions = require('../actions/project_actions');
+const ProfilePage = require('./profile_page');
 
 
 const NavBar = React.createClass({
@@ -43,7 +44,7 @@ const NavBar = React.createClass({
         </a>
         <Link to="/" className="signout-link">
           <div className="logout-hover">
-            <h4>{SessionStore.currentUser().username}</h4>
+            <Link to="/profile" className="username-navbar"><h4>{SessionStore.currentUser().username}</h4></Link>
             <input className="logout-button" type="submit" value="Logout" onClick={ this._handleLogOut } />
           </div>
         </Link>

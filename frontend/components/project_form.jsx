@@ -11,7 +11,7 @@ const hashHistory = ReactRouter.hashHistory;
 const ProjectForm = React.createClass({
   getInitialState(){
     let currentUserId = SessionStore.currentUser().id;
-    return ({ name: "", description:"", investment: 0, goal: "", street_address:"", city:"", state:"", zip_code:"", media_url:"", author_id:currentUserId, archived:false, errors: ""})
+    return ({ name: "", description:"", investment: 0, goal: "", rating:"", end_date:"", street_address:"", city:"", state:"", zip_code:"", media_url:"", author_id:currentUserId, archived:false, errors: ""})
   },
 
   handleSubmit(e){
@@ -30,7 +30,9 @@ const ProjectForm = React.createClass({
      author_id: this.state.author_id,
      archived: this.state.archived,
      goal: this.state.goal,
-     investment: this.state.investment
+     investment: this.state.investment,
+     rating: this.state.rating,
+     end_date: this.state.end_date
     }
     ProjectActions.createProject(projectData);
     hashHistory.push("/");
@@ -77,6 +79,16 @@ const ProjectForm = React.createClass({
     this.setState({goal: e.target.value})
   },
 
+  ratingChange(e) {
+    e.preventDefault();
+    this.setState({rating: e.target.value})
+  },
+
+  dateChange(e) {
+    e.preventDefault();
+    this.setState({end_date: e.target.value})
+  },
+
   render() {
     return(
       <div className="form-container">
@@ -89,6 +101,8 @@ const ProjectForm = React.createClass({
           <input onChange={this.stateChange} type="text" placeholder="State" />
           <input onChange={this.zipChange} type="text" placeholder="Zip Code" />
           <input onChange={this.goalChange} type="text" placeholder="Goal" />
+          <input onChange={this.ratingChange} type="text" placeholder="Rating" />
+          <input onChange={this.dateChange} type="text" placeholder="End Date" />
           <input onChange={this.descriptionChange} type="text" placeholder="Description" />
           <input onChange={this.mediaChange} type="text" placeholder="Image / Video URL" />
           <input type="submit" className="create-project-button" value="Create Project" />

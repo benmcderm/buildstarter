@@ -9,6 +9,8 @@ class Project < ActiveRecord::Base
           :author_id,
           :investment,
           :goal,
+          :rating,
+          :end_date,
           presence: true
   validates :name, uniqueness: true
 

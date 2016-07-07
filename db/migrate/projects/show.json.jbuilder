@@ -7,4 +7,8 @@ json.extract! @project, :id,
                         :zip_code,
                         :media_url,
                         :author_id,
-                        :archived
+                        :archived,
+                        :investment,
+                        :goal,
+                        :rating,
+                        :end_date
