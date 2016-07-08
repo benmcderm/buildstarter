@@ -35,7 +35,9 @@ The index is composed of `BrowserIndexItem` components. `BrowserIndexItem` compo
 
 ### Project Viewing
 
-Projects are viewed with a `ProjectDetail` component. The total investment in a project is calculated and updated dynamically
+Projects are viewed with a `ProjectDetail` component. The total investment in a project is calculated and updated dynamically.
+
+Only logged in users are allowed to make investments in a project.
 
 ### Project Creation
 
@@ -51,7 +53,9 @@ The dynamic search bar overrides the original `navBar` component, allowing users
 
 ### Current User Menus
 
-When a user is logged in, they can hover over their username in the `navBar` in order to see their investments.
+When a user is logged in, they can hover over their username in the `navBar` in order to see a drop down with options for 'Profile' and 'Logout'.
+
+The users's Profile will display any recent investments they've made and which project it relates to.
 
 
 ## Future Direction for the Project

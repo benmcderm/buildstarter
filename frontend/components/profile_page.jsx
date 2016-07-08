@@ -26,7 +26,7 @@ const ProfilePage = React.createClass({
 
   onChange(){
     const filteredInvestments = InvestmentStore.userFilter(this.state.user);
-    this.setState({investments: InvestmentStore.all(), projects: ProjectStore.all()});
+    this.setState({investments: filteredInvestments, projects: ProjectStore.all()});
   },
 
   render: function () {
