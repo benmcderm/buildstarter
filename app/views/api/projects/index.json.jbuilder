@@ -11,4 +11,5 @@ json.array! @projects, :id,
                         :investment,
                         :goal,
                         :rating,
-                        :end_date
+                        :end_date,
+                        :category

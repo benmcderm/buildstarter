@@ -38,9 +38,12 @@ const ContributeForm = React.createClass({
     return(
       <div className="contribution-form-container">
         <form onSubmit={this.handleSubmit} className="project-contribution">
-          <h2 className="investment-stat">Investments: ${this.props.project.investment}</h2>
-          <h2 className="goal-stat">Goal: ${this.props.project.goal}</h2>
-          <input onChange={this.investmentChange} type="currency" className="investment-field" placeholder="Investment Amount" value={this.state.investment}/>
+          <h2 className="investment-stat">${this.props.project.investment}</h2>
+          Investments
+          <h2 className="goal-stat">${this.props.project.goal}</h2>
+          Goal
+          <br></br>
+          <input onChange={this.investmentChange} type="number" className="investment-field" placeholder="Investment Amount" value={this.state.investment}/>
           <input type="submit" className="invest-project-button" value="Invest in Project" />
         </form>
       </div>

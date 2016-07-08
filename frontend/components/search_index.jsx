@@ -38,7 +38,11 @@ const SearchIndex = React.createClass({
     let matchedProjects = [];
     let allProjects = this.state.projects;
     Object.keys(allProjects).forEach((key)=> {
-      if(allProjects[key].name.toLowerCase().includes(string.toLowerCase()) || allProjects[key].description.toLowerCase().includes(string.toLowerCase()))
+      if(allProjects[key].name.toLowerCase().includes(string.toLowerCase()) ||
+      allProjects[key].description.toLowerCase().includes(string.toLowerCase()) ||
+      allProjects[key].rating.toLowerCase().includes(string.toLowerCase()) ||
+      allProjects[key].category.toLowerCase().includes(string.toLowerCase())
+    )
         matchedProjects.push(allProjects[key]);
     })
     this.setState({results: matchedProjects});
@@ -47,7 +51,20 @@ const SearchIndex = React.createClass({
   render() {
     if(this.state.results.length === 0){
       return(<div className="empty-results">
-        <h2 className="results-title">Awaiting your query...</h2>
+      <div>
+        <h2 className="results-title">Common Searches:</h2>
+        <ul className="results-title-list">
+          <li>
+            "123 Jane St"
+          </li>
+          <li>
+            "Apartment Building"
+          </li>
+          <li>
+            "Commercial" or "Residential"
+          </li>
+        </ul>
+        </div>
       </div>)
     } else {
     return (<ul className="project-list">

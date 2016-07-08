@@ -13,10 +13,11 @@ const SplashPage = React.createClass({
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 5500
+      autoplaySpeed: 5500,
+      arrows: false
     };
     return (
-      <div>
+      <div className="splash-div">
         <h2 className="splash-header">Invest in real estate with others</h2>
       <Slider {...settings} className="slider">
         <div><img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467764510/Screen_Shot_2016-07-05_at_5.20.11_PM_dnm6u0.png"></img></div>

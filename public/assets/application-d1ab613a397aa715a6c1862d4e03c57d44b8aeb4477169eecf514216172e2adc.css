@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
 
  /*.logout-button {
@@ -21,6 +21,7 @@
    opacity: 0;
  }
  */
+
 
 .signout-link:hover .logout-button {
    display: block;

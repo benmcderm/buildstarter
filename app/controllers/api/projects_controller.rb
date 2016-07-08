@@ -19,7 +19,8 @@ class Api::ProjectsController < ApplicationController
       investment: project_params[:investment],
       goal: project_params[:goal],
       rating: project_params[:rating],
-      end_date: project_params[:end_date]
+      end_date: project_params[:end_date],
+      category: project_params[:category]
     )
     if @project.save
       render :show
@@ -63,7 +64,8 @@ class Api::ProjectsController < ApplicationController
       :investment,
       :goal,
       :rating,
-      :end_date
+      :end_date,
+      :category
       )
   end
 end

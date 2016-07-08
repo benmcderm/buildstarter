@@ -44,7 +44,12 @@ const NavBar = React.createClass({
         </a>
         <Link to="/" className="signout-link">
           <div className="logout-hover">
-            <Link to="/profile" className="username-navbar"><h4>{SessionStore.currentUser().username}</h4></Link>
+            <Link to="/profile" className="username-navbar"><h4 className="username">{SessionStore.currentUser().username}</h4></Link>
+          </div>
+          <div className="nav-dropdown">
+            <Link to="/profile" className="username-navbar">
+              <input className="profile-button" type="submit" value="Profile" />
+            </Link>
             <input className="logout-button" type="submit" value="Logout" onClick={ this._handleLogOut } />
           </div>
         </Link>

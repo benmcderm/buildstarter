@@ -11,6 +11,7 @@ class Project < ActiveRecord::Base
           :goal,
           :rating,
           :end_date,
+          :category,
           presence: true
   validates :name, uniqueness: true
 

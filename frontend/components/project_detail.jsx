@@ -26,23 +26,27 @@ const ProjectDetail = React.createClass({
 
   render() {
     return (
+      <div className="project-all">
       <div className="project-detail">
         <h1 className="project-detail-title">{this.state.project.name}</h1>
         <div className="project-detail-content">
 
           <div className="project-detail-media">
             <img alt="Project image" className="project-media" src={this.state.project.media_url}></img>
-            <div className="project-detail-description">
-              {this.state.project.description}
-            </div>
           </div>
         </div>
 
           <div className="project-detail-stats">
-            Rating: {this.state.project.rating}
-            End Date: {this.state.project.end_date}
+            <h2>{this.state.project.rating}</h2>
+            Rating
+            <h2>{this.state.project.end_date}</h2>
+            End Date
             <ContributeForm project={this.state.project}/>
           </div>
+      </div>
+        <div className="project-detail-description">
+          {this.state.project.description}
+        </div>
       </div>
     )
   }

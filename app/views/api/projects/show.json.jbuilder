@@ -11,4 +11,5 @@ json.extract! @project, :id,
                         :investment,
                         :goal,
                         :rating,
-                        :end_date
+                        :end_date,
+                        :category
