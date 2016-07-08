@@ -33,6 +33,16 @@ ProjectStore.find = function (id) {
   return _projects[id];
 };
 
+ProjectStore.categoryFilter = function (category) {
+  let results = [];
+  for (var i in _projects) {
+    if (_projects.hasOwnProperty(i) && _projects[i].category === category) {
+      results.push(_projects[i]);
+    }
+  }
+  return results;
+};
+
 ProjectStore.all = function () {
   let results = [];
   for (var i in _projects) {

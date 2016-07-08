@@ -28,11 +28,11 @@ const BrowserIndex = React.createClass({
   },
 
   commercialClick(e){
-    console.log(e);
+    this.setState({projects: ProjectStore.categoryFilter("Commercial")})
   },
 
   residentialClick(e){
-    console.log(e);
+    this.setState({projects: ProjectStore.categoryFilter("Residential")})
   },
 
   render() {
@@ -82,6 +82,9 @@ const BrowserIndex = React.createClass({
     return (
       <div>
         <div className="all-categories">
+          <div className="project-category" onClick={this.handleChange}>
+            <h3 className="project-category-title">All</h3>
+          </div>
           <div className="project-category" onClick={this.commercialClick}>
             <h3 className="project-category-title">Commercial</h3>
           </div>

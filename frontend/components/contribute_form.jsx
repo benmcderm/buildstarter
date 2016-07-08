@@ -7,6 +7,8 @@ const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 const ProjectStore = require('../stores/project_store');
+const InvestmentStore = require('../stores/investment_store');
+const InvestmentActions = require('../actions/investment_actions');
 
 function numberWithCommas(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -25,6 +27,15 @@ const ContributeForm = React.createClass({
      id: currentProject.id
     }
     ProjectActions.updateProject(projectData);
+
+    const currentUser = SessionStore.currentUser();
+    const investmentData = {
+     amount: this.state.investment,
+     project_id: currentProject.id,
+     user_id: currentUser.id
+    }
+    InvestmentActions.createInvestment(investmentData);
+
     this.setState({ investment: ""});
     hashHistory.push(`/discover/${currentProject.id}`);
   },

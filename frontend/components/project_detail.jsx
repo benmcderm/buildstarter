@@ -25,10 +25,23 @@ const ProjectDetail = React.createClass({
   },
 
   render() {
+    let goalPercent;
+    let goalPercentage = (this.state.project.investment / this.state.project.goal)*100;
+    if(goalPercentage < 0) {
+      goalPercent = 0;
+    } else if (goalPercentage < 100) {
+      goalPercent = goalPercentage
+    }
+      else {
+      goalPercent = 100;
+    }
     return (
       <div className="project-all">
       <div className="project-detail">
         <h1 className="project-detail-title">{this.state.project.name}</h1>
+        <div className="total-progress-bar">
+          <div className="progress-bar" style={{width:`${goalPercent}%`}}></div>
+        </div>
         <div className="project-detail-content">
 
           <div className="project-detail-media">

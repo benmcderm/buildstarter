@@ -42,7 +42,7 @@ const NavBar = React.createClass({
                width="18px">
           </img>
         </a>
-        <Link to="/" className="signout-link">
+        <div to="/" className="signout-link">
           <div className="logout-hover">
             <Link to="/profile" className="username-navbar"><h4 className="username">{SessionStore.currentUser().username}</h4></Link>
           </div>
@@ -52,7 +52,7 @@ const NavBar = React.createClass({
             </Link>
             <input className="logout-button" type="submit" value="Logout" onClick={ this._handleLogOut } />
           </div>
-        </Link>
+        </div>
       </div>;
     } else {
       navRight = <div className={`navRight`}>

@@ -16,7 +16,7 @@ const ProjectForm = React.createClass({
 
   handleSubmit(e){
     e.preventDefault();
-    if (!SessionStore.currentUser()) {
+    if (!SessionStore.isUserLoggedIn()) {
       this.setState({errors: "You must log in to create a project."})
     } else {
     const projectData = {
