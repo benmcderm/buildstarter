@@ -7,8 +7,8 @@ const InvestmentUtil = {
       success: function(investments) {
         callback(investments);
       },
-      error() {
-        console.log('Error fetching Investments');
+      error(xhr){
+      let errors = $.parseJSON(xhr.responseText).errors
       }
     });
   },
@@ -35,8 +35,8 @@ const InvestmentUtil = {
       success: function(resp) {
         callback(resp)
       },
-      error() {
-        console.log('Error creating Investment');
+      error(xhr){
+      let errors = $.parseJSON(xhr.responseText).errors
       }
     });
   },
@@ -50,8 +50,8 @@ const InvestmentUtil = {
       success: function(resp) {
         callback(resp)
       },
-      error() {
-        console.log('Error updating Investment');
+      error(xhr){
+      let errors = $.parseJSON(xhr.responseText).errors
       }
     });
   },

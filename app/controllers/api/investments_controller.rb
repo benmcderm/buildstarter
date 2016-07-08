@@ -23,7 +23,7 @@ class Api::InvestmentsController < ApplicationController
       if @investment.update_attributes(investment_params)
         render :show
       else
-        "Error"
+        render json: @investment.errors
       end
     end
 
@@ -32,7 +32,7 @@ class Api::InvestmentsController < ApplicationController
       if @investment
         render :show
       else
-        "Error"
+        render json: @investment.errors
       end
     end
 

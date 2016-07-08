@@ -2,10 +2,12 @@ const React = require('react');
 const SessionStore = require('../stores/session_store');
 const ProjectActions = require('../actions/project_actions');
 const ReactRouter = require('react-router');
+const LoginForm = require('./login_form');
 const Router = ReactRouter.Router;
 const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
+const Link = require('react-router').Link;
 
 
 const ProjectForm = React.createClass({
@@ -96,6 +98,7 @@ const ProjectForm = React.createClass({
   },
 
   render() {
+    if (SessionStore.isUserLoggedIn()) {
     return(
       <div className="form-container">
         <h2 className="form-title">Create a New Project</h2>
@@ -115,7 +118,15 @@ const ProjectForm = React.createClass({
           <input type="submit" className="create-project-button" value="Create Project" />
         </form>
       </div>
-    )
+    );
+    } else {
+      return (
+          <div className="login-to-create">
+              <h2>Please Log In or Sign Up to create a project</h2>
+              <div className="login-link-container"><Link to={'/login'} className="project-login-link">Log In</Link></div>
+          </div>
+      );
+    }
   }
 });
 

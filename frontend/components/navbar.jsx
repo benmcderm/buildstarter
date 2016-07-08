@@ -33,6 +33,12 @@ const NavBar = React.createClass({
   },
 
   greeting(){
+    let magnifyingGlass;
+    if (this.props.searchState() === "-hidden") {
+      magnifyingGlass = "http://res.cloudinary.com/di7w4wcnw/image/upload/v1467822040/magnifying-glass_rjnbyg.svg";
+    } else {
+      magnifyingGlass = "http://res.cloudinary.com/di7w4wcnw/image/upload/v1468004615/cancel_ttuweo.svg";
+    }
     let navRight;
     if (SessionStore.isUserLoggedIn()) {
       navRight = <div className={`navRight`}>
@@ -80,7 +86,7 @@ const NavBar = React.createClass({
         <div className={`search-navbar${this.props.searchState()}`}>
           <input className="search-input" onChange={this.handleSearch} onKeyDown={this.handleEscape} type="text" placeholder="Search" value={this.props.queryString}></input>
             <a onClick={this.handleSearchClick} className="nav-search-active" href="#">
-              <img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467822040/magnifying-glass_rjnbyg.svg"
+              <img className={`search-logo${this.props.searchState()}`} src={magnifyingGlass}
                    height="18px"
                    width="18px">
               </img>

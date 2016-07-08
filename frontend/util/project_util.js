@@ -7,8 +7,8 @@ const ProjectUtil = {
       success: function(projects) {
         callback(projects);
       },
-      error() {
-        console.log('Error fetching Projects');
+      error(xhr){
+      let errors = $.parseJSON(xhr.responseText).errors
       }
     });
   },
@@ -35,8 +35,8 @@ const ProjectUtil = {
       success: function(resp) {
         callback(resp)
       },
-      error() {
-        console.log('Error creating Project');
+      error(xhr){
+      let errors = $.parseJSON(xhr.responseText).errors
       }
     });
   },
@@ -50,8 +50,8 @@ const ProjectUtil = {
       success: function(resp) {
         callback(resp)
       },
-      error() {
-        console.log('Error updating Project');
+      error(xhr){
+      let errors = $.parseJSON(xhr.responseText).errors
       }
     });
   },

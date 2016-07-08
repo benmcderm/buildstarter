@@ -34,7 +34,7 @@ class Api::ProjectsController < ApplicationController
     if @project.update_attributes(project_params)
       render :show
     else
-      "Error"
+      render json: @project.errors
     end
   end
 
@@ -43,7 +43,7 @@ class Api::ProjectsController < ApplicationController
     if @project
       render :show
     else
-      "Error"
+      render json: @project.errors
     end
   end
 
