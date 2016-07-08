@@ -4,11 +4,13 @@ const ReactDOM = require('react-dom');
 const Link = require('react-router').Link;
 const ProjectStore = require('../stores/project_store');
 const ProjectActions = require('../actions/project_actions');
-const ContributeForm = require('./contribute_form')
+const ContributeForm = require('./contribute_form');
+const SessionStore = require('../stores/session_store');
+
 
 const ProjectDetail = React.createClass({
   getInitialState() {
-    return ({project: {}})
+    return ({project: {}, user: SessionStore.currentUser()})
   },
 
   componentDidMount() {
@@ -25,6 +27,20 @@ const ProjectDetail = React.createClass({
   },
 
   render() {
+    let contribute;
+    if (!SessionStore.isUserLoggedIn()) {
+      contribute =
+      <div>
+      <h2 className="investment-stat">${this.state.project.investment}</h2>
+      Investments
+      <h2 className="goal-stat">${this.state.project.goal}</h2>
+      Goal
+      <br></br>
+      <h3>Please Log In to Contribute</h3>
+      </div>
+    } else {
+      contribute = <ContributeForm project={this.state.project}/>
+    }
     let goalPercent;
     let goalPercentage = (this.state.project.investment / this.state.project.goal)*100;
     if(goalPercentage < 0) {
@@ -54,7 +70,7 @@ const ProjectDetail = React.createClass({
             Rating
             <h2>{this.state.project.end_date}</h2>
             End Date
-            <ContributeForm project={this.state.project}/>
+            {contribute}
           </div>
       </div>
         <div className="project-detail-description">

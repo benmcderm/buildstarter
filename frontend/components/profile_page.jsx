@@ -41,14 +41,14 @@ const ProfilePage = React.createClass({
       <div className="profile-page">
         <h1 className="profile-title">{SessionStore.currentUser().username}</h1>
         <h3 className="investment-title">Recent Investments</h3>
-        <div className="investment-list">
+        <ul className="investment-list">
         {
           this.state.investments.map((inv)=> {
             let currentProj = ProjectStore.find(inv.project_id);
-            return (<div key={inv.id} className="investment-list-item">${inv.amount}   -   {currentProj.name}</div>)
+            return (<li key={inv.id} className="investment-list-item"><h2 className="investment-list-amount">${inv.amount}</h2><h2 className="investment-list-name">{currentProj.name}</h2></li>)
           })
         }
-        </div>
+      </ul>
       </div>
     );
   }
