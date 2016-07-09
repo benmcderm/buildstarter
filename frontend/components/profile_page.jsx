@@ -25,7 +25,7 @@ const ProfilePage = React.createClass({
   },
 
   onChange(){
-    const filteredInvestments = InvestmentStore.userFilter(this.state.user);
+    let filteredInvestments = InvestmentStore.userFilter(this.state.user.id);
     this.setState({investments: filteredInvestments, projects: ProjectStore.all()});
   },
 
@@ -45,6 +45,9 @@ const ProfilePage = React.createClass({
         {
           this.state.investments.map((inv)=> {
             let currentProj = ProjectStore.find(inv.project_id);
+            if (currentProj === undefined) {
+              return;
+            }
             return (<li key={inv.id} className="investment-list-item"><h2 className="investment-list-amount">${inv.amount}</h2><h2 className="investment-list-name">{currentProj.name}</h2></li>)
           })
         }
