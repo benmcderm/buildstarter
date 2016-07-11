@@ -2,11 +2,11 @@
 
 [Buildstarter live][heroku]
 
-[heroku]: https://salty-lake-96978.herokuapp.com/
+[heroku]: www.buildstarter.co/
 
 Buildstarter is a web application that allows users to crowdfund real estate investments.  
 
-Buildstarter is architected as a single page application using React.js, the Flux data flow design pattern, a PostgreSQL database, and a Ruby on Rails back-end.
+Buildstarter is a single page application built using React.js, the Flux data flow design pattern, a PostgreSQL database, and a Ruby on Rails back-end.
 
 ## Features & Implementation
 
@@ -42,10 +42,6 @@ Only logged in users are allowed to make investments in a project.
 ### Project Creation
 
 Projects are created with a `ProjectForm` component. Users can add projects they'd like to receive funding for via a simple form.
-
-### Splash Page and Navbar
-
-The splash page uses a react component to display a number of divs.
 
 ### Search Bar
 
