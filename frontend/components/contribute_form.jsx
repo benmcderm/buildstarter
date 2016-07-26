@@ -9,6 +9,7 @@ const hashHistory = ReactRouter.hashHistory;
 const ProjectStore = require('../stores/project_store');
 const InvestmentStore = require('../stores/investment_store');
 const InvestmentActions = require('../actions/investment_actions');
+import CountUp from 'react-countup';
 
 function numberWithCommas(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -16,14 +17,15 @@ function numberWithCommas(num) {
 
 const ContributeForm = React.createClass({
   getInitialState(){
-    return ({ investment: ""})
+    return ({ investment: 0, newInvestment: 0})
   },
 
   handleSubmit(e){
     e.preventDefault();
+    this.setState({ newInvestment: e.target.value});
     const currentProject = this.props.project;
     const projectData = {
-     investment: +this.state.investment + +currentProject.investment,
+     investment: +this.state.newInvestment + +currentProject.investment,
      id: currentProject.id
     }
     ProjectActions.updateProject(projectData);
@@ -36,25 +38,34 @@ const ContributeForm = React.createClass({
     }
     InvestmentActions.createInvestment(investmentData);
 
-    this.setState({ investment: ""});
+    this.setState({ investment: 0, newInvestment: 0});
     hashHistory.push(`/discover/${currentProject.id}`);
   },
 
   investmentChange(e) {
     e.preventDefault();
-    this.setState({investment: e.target.value})
+    this.setState({investment: e.target.value, newInvestment: e.target.value})
+
   },
 
   render() {
     return(
       <div className="contribution-form-container">
         <form onSubmit={this.handleSubmit} className="project-contribution">
-          <h2 className="investment-stat">${this.props.project.investment}</h2>
+          <h2 id="investment-stat" className="investment-stat">$<CountUp
+              start={this.props.project.investment}
+              end={parseInt(this.props.project.investment) + parseInt(this.state.newInvestment)}
+              duration={2.75}
+              useEasing={true}
+              separator=","
+              decimal=","
+            />
+          </h2>
           Investments
           <h2 className="goal-stat">${this.props.project.goal}</h2>
           Goal
           <br></br>
-          <input onChange={this.investmentChange} type="number" className="investment-field" placeholder="Investment Amount" value={this.state.investment}/>
+          <input onChange={this.investmentChange} type="number" className="investment-field" placeholder="Investment Amount" value={this.state.newInvestment}/>
           <input type="submit" className="invest-project-button" value="Invest in Project" />
         </form>
       </div>

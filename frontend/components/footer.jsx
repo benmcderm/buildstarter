@@ -8,60 +8,51 @@ const Footer = React.createClass({
       <footer className="footer">
         <div className="footer-total">
           <div className="footer-left-links">
-            <h3 className="footer-title">About Us</h3>
+            <h3 className="footer-title">What is Buildstarter?</h3>
             <ul className="footer-list">
               <li>
-                What is Buildstarter?
+                A project developed
               </li>
               <li>
-                Who we are
+                by Ben McDermott
               </li>
               <li>
-                Jobs
+                Capitalizing on
               </li>
               <li>
-                Press
+                the trend
               </li>
               <li>
-                Stats
+                of
               </li>
               <li>
-                Newsletters
-              </li>
-              <li>
-                Spotlight
+                crowdfunding.
               </li>
             </ul>
           </div>
           <div className="footer-left-links">
-            <h3 className="footer-title">Help</h3>
+            <h3 className="footer-title">About Me:</h3>
             <ul className="footer-list">
               <li>
-                FAQ
+                Software Engineer
               </li>
               <li>
-                Our Rules
+                Salesforce Consultant
               </li>
               <li>
-                Creator Handbook
+                Prodcut Development
               </li>
               <li>
-                Campus
+                App Development
               </li>
               <li>
-                Trust & Safety
+                Long term traveler
               </li>
               <li>
-                Support
+                Artist
               </li>
               <li>
-                Terms of Use
-              </li>
-              <li>
-                Privacy Policy
-              </li>
-              <li>
-                Cookie Policy
+                Runner
               </li>
             </ul>
           </div>
@@ -69,7 +60,7 @@ const Footer = React.createClass({
             <h3 className="footer-title">Hello</h3>
             <ul className="footer-list">
               <li>
-                Blog
+                How are you?
               </li>
             </ul>
           </div>

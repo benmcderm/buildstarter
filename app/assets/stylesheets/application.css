@@ -339,23 +339,25 @@ img {
 
 .discover-link {
   margin-top: -3px;
-  padding-right: 45px;
-  padding-left: 26px;
+  padding-right: 20px;
+  padding-left: 20px;
   box-sizing: border-box;
   text-decoration: none;
 }
 
-.discover-link h4:hover {
+.discover-link:hover {
   border-bottom: 3px solid #3879D9;
   padding-bottom: 20px;
 }
 
 .build-link {
   margin-top: -3px;
+  padding-right: 20px;
+  padding-left: 20px;
   text-decoration: none;
 }
 
-.build-link h4:hover {
+.build-link:hover {
   border-bottom: 3px solid #3879D9;
   padding-bottom: 20px;
 }
@@ -376,7 +378,7 @@ img {
 .nav-search-active {
   float: right;
   margin-top: 20px;
-  padding-right: 195px;
+  padding-right: 215px;
   padding-left: 15px;
   box-sizing: border-box;
   text-decoration: none;
@@ -388,7 +390,8 @@ img {
   border-bottom: 1px solid #A9A9A9;
   font-size: 20px;
   width: 750px;
-  padding: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
   font-family: 'Lato', sans-serif;
   margin-left: 300px;
   padding-top: 20px;
@@ -396,22 +399,24 @@ img {
 
 .login-link {
   margin-top: -3px;
-  padding-right: 45px;
+  padding-right: 20px;
+  padding-left: 20px;
   text-decoration: none;
 }
 
-.login-link h4:hover {
+.login-link:hover {
   border-bottom: 3px solid #3879D9;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .signup-link {
   margin-top: -3px;
-  padding-right: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
   text-decoration: none;
 }
 
-.signup-link h4:hover {
+.signup-link:hover {
   border-bottom: 3px solid #3879D9;
   padding-bottom: 20px;
 }
@@ -420,6 +425,7 @@ img {
   margin-top: -3px;
   padding-right: 15px;
   text-decoration: none;
+  cursor: default;
 }
 
 .user-dropdown {
@@ -438,6 +444,7 @@ img {
 
 .username-navbar {
   text-decoration: none;
+  cursor: default;
 }
 
 .username {
@@ -445,6 +452,7 @@ img {
   padding-right: 18px;
   color: black;
   font-family: 'Lato', sans-serif;
+  cursor: default;
 }
 
 /* navBar Dropdown */
