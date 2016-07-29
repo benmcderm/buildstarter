@@ -16,16 +16,16 @@ function numberWithCommas(num) {
 };
 
 const ContributeForm = React.createClass({
-  getInitialState(){
-    return ({ investment: 0, newInvestment: 0})
+
+  componentWillReceiveProps(){
+    this.appliedInvestment = this.props.project.investment
   },
 
   handleSubmit(e){
-    e.preventDefault();
-    this.setState({ newInvestment: e.target.value});
+    this.appliedInvestment = parseInt(this.props.project.investment) + parseInt(this.props.newInvestment);
     const currentProject = this.props.project;
     const projectData = {
-     investment: +this.state.newInvestment + +currentProject.investment,
+     investment: +this.props.newInvestment + +currentProject.investment,
      id: currentProject.id
     }
     ProjectActions.updateProject(projectData);
@@ -37,15 +37,6 @@ const ContributeForm = React.createClass({
      user_id: currentUser.id
     }
     InvestmentActions.createInvestment(investmentData);
-
-    this.setState({ investment: 0, newInvestment: 0});
-    hashHistory.push(`/discover/${currentProject.id}`);
-  },
-
-  investmentChange(e) {
-    e.preventDefault();
-    this.setState({investment: e.target.value, newInvestment: e.target.value})
-
   },
 
   render() {
@@ -53,9 +44,9 @@ const ContributeForm = React.createClass({
       <div className="contribution-form-container">
         <form onSubmit={this.handleSubmit} className="project-contribution">
           <h2 id="investment-stat" className="investment-stat">$<CountUp
-              start={this.props.project.investment}
-              end={parseInt(this.props.project.investment) + parseInt(this.state.newInvestment)}
-              duration={2.75}
+              start={this.appliedInvestment}
+              end={this.props.project.investment}
+              duration={2.15}
               useEasing={true}
               separator=","
               decimal=","
@@ -65,7 +56,7 @@ const ContributeForm = React.createClass({
           <h2 className="goal-stat">${this.props.project.goal}</h2>
           Goal
           <br></br>
-          <input onChange={this.investmentChange} type="number" className="investment-field" placeholder="Investment Amount" value={this.state.newInvestment}/>
+          <input onChange={this.props.investmentChange} type="number" className="investment-field" placeholder="Investment Amount" value={this.props.newInvestment}/>
           <input type="submit" className="invest-project-button" value="Invest in Project" />
         </form>
       </div>

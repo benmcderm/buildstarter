@@ -23,13 +23,13 @@ const SplashPage = React.createClass({
       <Slider {...settings} className="slider">
         <div><Link to={`discover/`} className="splash-link">
           View Current Projects
-        </Link><img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467764510/Screen_Shot_2016-07-05_at_5.20.11_PM_dnm6u0.png"></img></div>
+        </Link><img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1469815242/slider1_lxh6h3.jpg"></img></div>
         <div><Link to={`discover/`} className="splash-link">
           View Current Projects
-        </Link><img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467764499/Screen_Shot_2016-07-05_at_5.19.13_PM_ix5158.png"></img></div>
+        </Link><img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1469815271/slider2_kfswil.jpg"></img></div>
         <div><Link to={`discover/`} className="splash-link">
           View Current Projects
-        </Link><img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467764518/Screen_Shot_2016-07-05_at_5.18.46_PM_f9lxhy.png"></img></div>
+        </Link><img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1469815271/slider3_u8o7zh.jpg"></img></div>
       </Slider>
       </div>
     );

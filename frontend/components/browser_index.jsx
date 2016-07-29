@@ -35,6 +35,12 @@ const BrowserIndex = React.createClass({
     this.setState({projects: ProjectStore.categoryFilter("Residential")})
   },
 
+  transformPic(url, w, h, params){
+    if (params === undefined){ params = '';}
+   const query = `/upload/w_${w},h_${h},c_fill${params}`;
+   return url.split('/upload').join(query);
+  },
+
   render() {
     let featured;
     if(this.state.projects[0] === undefined){
@@ -56,7 +62,7 @@ const BrowserIndex = React.createClass({
           <div className="featured-project-card">
             <div className="featured-project-card-thumbnail">
               <Link to={`discover/${this.state.projects[0].id}`} className="project-thumbnail-wrap">
-                <img alt="Project image" className="project-thumbnail-img" src={this.state.projects[0].media_url} width="100%"></img>
+                <img alt="Project image" className="project-thumbnail-img" src={this.transformPic(this.state.projects[0].media_url, 352, 200)} width="100%"></img>
               </Link>
             </div>
             <div className="featured-project-card-right">

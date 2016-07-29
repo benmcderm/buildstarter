@@ -10,7 +10,7 @@ const SessionStore = require('../stores/session_store');
 
 const ProjectDetail = React.createClass({
   getInitialState() {
-    return ({project: {}, user: SessionStore.currentUser()})
+    return ({project: {}, user: SessionStore.currentUser(), newInvestment: 0})
   },
 
   componentDidMount() {
@@ -26,6 +26,11 @@ const ProjectDetail = React.createClass({
     this.setState({project: ProjectStore.find(this.props.params.projectId)})
   },
 
+  investmentChange(e) {
+      e.preventDefault();
+      this.setState({newInvestment: e.target.value})
+  },
+
   render() {
     let contribute;
     if (!SessionStore.isUserLoggedIn()) {
@@ -39,7 +44,7 @@ const ProjectDetail = React.createClass({
       <h3>Please Log In to Contribute</h3>
       </div>
     } else {
-      contribute = <ContributeForm project={this.state.project}/>
+      contribute = <ContributeForm project={this.state.project} newInvestment={this.state.newInvestment} investmentChange={this.investmentChange}/>
     }
     let goalPercent;
     let goalPercentage = (this.state.project.investment / this.state.project.goal)*100;

@@ -4,6 +4,11 @@ const ReactDOM = require('react-dom');
 const Link = require('react-router').Link;
 
 const BrowserIndexItem = React.createClass({
+  transformPic(url, w, h, params){
+    if (params === undefined){ params = '';}
+   const query = `/upload/w_${w},h_${h},c_fill${params}`;
+   return url.split('/upload').join(query);
+  },
 
   render() {
     let goalPercent;
@@ -16,12 +21,13 @@ const BrowserIndexItem = React.createClass({
       else {
       goalPercent = 100;
     }
+    let url = this.transformPic(this.props.project.media_url, 288, 200);
     return (
       <li className="project-list-item">
         <div className="project-card">
           <div className="project-card-thumbnail">
             <Link to={`discover/${this.props.project.id}`} className="project-thumbnail-wrap">
-              <img alt="Project image" className="project-thumbnail-img" src={this.props.project.media_url} width="100%"></img>
+              <img alt="Project image" className="project-thumbnail-img" src={url} width="100%"></img>
             </Link>
           </div>
 
