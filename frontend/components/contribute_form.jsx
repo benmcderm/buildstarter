@@ -12,56 +12,63 @@ const InvestmentActions = require('../actions/investment_actions');
 import CountUp from 'react-countup';
 
 function numberWithCommas(num) {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 
 const ContributeForm = React.createClass({
 
-  componentWillReceiveProps(){
-    this.appliedInvestment = this.props.project.investment
+  componentWillReceiveProps() {
+    this.appliedInvestment = this.props.project.investment;
   },
 
-  handleSubmit(e){
-    this.appliedInvestment = parseInt(this.props.project.investment) + parseInt(this.props.newInvestment);
+  handleSubmit(e) {
+    e.preventDefault();
+    this.appliedInvestment = +this.props.project.investment + +this.props.newInvestment;
     const currentProject = this.props.project;
     const projectData = {
-     investment: +this.props.newInvestment + +currentProject.investment,
-     id: currentProject.id
-    }
+      investment: +this.props.newInvestment + +currentProject.investment,
+      id: currentProject.id,
+    };
     ProjectActions.updateProject(projectData);
 
     const currentUser = SessionStore.currentUser();
     const investmentData = {
-     amount: this.state.investment,
-     project_id: currentProject.id,
-     user_id: currentUser.id
-    }
+      amount: this.props.newInvestment,
+      project_id: currentProject.id,
+      user_id: currentUser.id,
+    };
     InvestmentActions.createInvestment(investmentData);
   },
 
   render() {
-    return(
+    return (
       <div className="contribution-form-container">
         <form onSubmit={this.handleSubmit} className="project-contribution">
           <h2 id="investment-stat" className="investment-stat">$<CountUp
-              start={this.appliedInvestment}
-              end={this.props.project.investment}
-              duration={2.15}
-              useEasing={true}
-              separator=","
-              decimal=","
-            />
+            start={this.appliedInvestment}
+            end={this.props.project.investment}
+            duration={2.15}
+            useEasing
+            separator=","
+            decimal=","
+          />
           </h2>
           Investments
           <h2 className="goal-stat">${this.props.project.goal}</h2>
           Goal
           <br></br>
-          <input onChange={this.props.investmentChange} type="number" className="investment-field" placeholder="Investment Amount" value={this.props.newInvestment}/>
+          <input
+            onChange={this.props.investmentChange}
+            type="number"
+            className="investment-field"
+            placeholder="Investment Amount"
+            value={this.props.newInvestment}
+          />
           <input type="submit" className="invest-project-button" value="Invest in Project" />
         </form>
       </div>
-    )
-  }
+    );
+  },
 });
 
 module.exports = ContributeForm;

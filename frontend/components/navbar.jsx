@@ -1,4 +1,4 @@
-const React = require('react')
+const React = require('react');
 const Link = require('react-router').Link;
 const SessionStore = require('../stores/session_store');
 const ProjectStore = require('../stores/project_store');
@@ -8,45 +8,44 @@ const ProfilePage = require('./profile_page');
 
 
 const NavBar = React.createClass({
-  _handleLogOut () {
-   SessionActions.logOut();
-  },
 
   getInitialState() {
-    return ({greeting: this.greeting()});
+    return ({ greeting: this.greeting() });
   },
 
-  componentDidMount () {
-    this.setState({greeting: this.greeting()});
+  _handleLogOut() {
+    SessionActions.logOut();
   },
 
   handleSearchClick(e) {
     this.props.onSearchClick(e);
-    if (this.props.searchState() === "-hidden") {
-      $('.search-input').focus()
+    if (this.props.searchState() === '-hidden') {
+      $('.search-input').focus();
     }
   },
 
-  handleSearch(e){
+  handleSearch(e) {
     e.preventDefault();
     this.props.onSearchChange(e);
   },
 
-  greeting(){
+  greeting() {
     let magnifyingGlass;
-    if (this.props.searchState() === "-hidden") {
-      magnifyingGlass = "http://res.cloudinary.com/di7w4wcnw/image/upload/v1467822040/magnifying-glass_rjnbyg.svg";
+    if (this.props.searchState() === '-hidden') {
+      magnifyingGlass = 'http://res.cloudinary.com/di7w4wcnw/image/upload/v1467822040/magnifying-glass_rjnbyg.svg';
     } else {
-      magnifyingGlass = "http://res.cloudinary.com/di7w4wcnw/image/upload/v1468004615/cancel_ttuweo.svg";
+      magnifyingGlass = 'http://res.cloudinary.com/di7w4wcnw/image/upload/v1468004615/cancel_ttuweo.svg';
     }
     let navRight;
     if (SessionStore.isUserLoggedIn()) {
-      navRight = <div className={`navRight`}>
+      navRight = (<div className={`navRight`}>
         <a onClick={this.handleSearchClick} className="nav-search" href="#">
-          <img src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467822040/magnifying-glass_rjnbyg.svg"
-               height="18px"
-               width="18px">
-          </img>
+          <img
+            alt="Search"
+            src="http://res.cloudinary.com/di7w4wcnw/image/upload/v1467822040/magnifying-glass_rjnbyg.svg"
+            height="18px"
+            width="18px"
+          ></img>
         </a>
         <div to="/" className="signout-link">
           <div className="logout-hover">
@@ -59,7 +58,7 @@ const NavBar = React.createClass({
             <input className="logout-button" type="submit" value="Logout" onClick={ this._handleLogOut } />
           </div>
         </div>
-      </div>;
+      </div>);
     } else {
       navRight = <div className={`navRight`}>
         <a onClick={this.handleSearchClick} className="nav-search" href="#">
@@ -85,12 +84,15 @@ const NavBar = React.createClass({
         { navRight }
         <div className={`search-navbar${this.props.searchState()}`}>
           <input className="search-input" onChange={this.handleSearch} onKeyDown={this.handleEscape} type="text" placeholder="Search" value={this.props.queryString}></input>
-            <a onClick={this.handleSearchClick} className="nav-search-active" href="#">
-              <img className={`search-logo${this.props.searchState()}`} src={magnifyingGlass}
-                   height="18px"
-                   width="18px">
-              </img>
-            </a>
+          <a onClick={this.handleSearchClick} className="nav-search-active" href="#">
+            <img
+              alt="magnifying-glass"
+              className={`search-logo${this.props.searchState()}`}
+              src={magnifyingGlass}
+              height="18px"
+              width="18px"
+            ></img>
+          </a>
         </div>
       </header>
       );

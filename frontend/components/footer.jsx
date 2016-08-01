@@ -1,4 +1,4 @@
-const React = require('react')
+const React = require('react');
 const Link = require('react-router').Link;
 
 const Footer = React.createClass({
@@ -40,7 +40,7 @@ const Footer = React.createClass({
                 Salesforce Consultant
               </li>
               <li>
-                Prodcut Development
+                Product Development
               </li>
               <li>
                 App Development
@@ -81,7 +81,7 @@ const Footer = React.createClass({
         </div>
       </footer>
     );
-  }
+  },
 });
 
 module.exports = Footer;

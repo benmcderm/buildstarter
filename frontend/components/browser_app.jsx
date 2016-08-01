@@ -3,13 +3,13 @@ const BrowserIndex = require('./browser_index');
 
 const BrowserApp = React.createClass({
 
-  render () {
+  render() {
     return (
       <div className="browser-app">
         <BrowserIndex />
       </div>
     );
-  }
+  },
 
 });
 

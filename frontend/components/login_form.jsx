@@ -7,44 +7,44 @@ const hashHistory = require('react-router').hashHistory;
 const LoginForm = React.createClass({
 
   contextTypes: {
-		router: React.PropTypes.object.isRequired
-	},
-
-  getInitialState(){
-    return({ username: "Username", password: "Password"});
+    router: React.PropTypes.object.isRequired,
   },
 
-  componentDidMount(){
+  getInitialState() {
+    return ({ username: 'Username', password: 'Password' });
+  },
+
+  componentDidMount() {
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
   },
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.sessionListener.remove();
   },
 
   redirectIfLoggedIn() {
     if (SessionStore.isUserLoggedIn) {
-      this.context.router.push("/discover")
+      this.context.router.push('/discover');
     }
   },
 
-  passwordChange(e){
+  passwordChange(e) {
     const newPassword = e.target.value;
-    this.setState({ password: newPassword});
+    this.setState({ password: newPassword });
   },
 
-  usernameChange(e){
+  usernameChange(e) {
     const newUsername = e.target.value;
-    this.setState({ username: newUsername});
+    this.setState({ username: newUsername });
   },
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault();
     const formData = {
       username: this.state.username,
-      password: this.state.password
-    }
-    if (this.props.location.pathname === "/login") {
+      password: this.state.password,
+    };
+    if (this.props.location.pathname === '/login') {
       SessionActions.logIn(formData);
     } else {
       SessionActions.signUp(formData);
@@ -53,11 +53,11 @@ const LoginForm = React.createClass({
 
   guestLogin(e) {
     e.preventDefault();
-    this.setState({username: "guest", password:"password"});
+    this.setState({ username: 'guest', password: 'password' });
     const formData = {
       username: this.state.username,
-      password: this.state.password
-    }
+      password: this.state.password,
+    };
     SessionActions.logIn(formData);
   },
 
@@ -65,17 +65,17 @@ const LoginForm = React.createClass({
     return this.props.location.pathname.slice(1);
   },
 
-  render(){
+  render() {
     let header;
     let submitButton;
-    if (this.formType() === "login") {
-      header = <h2 className="login-form-title">Login</h2>
-      submitButton = <input type="submit" className="login-submit" value="Log In" />
+    if (this.formType() === 'login') {
+      header = <h2 className="login-form-title">Login</h2>;
+      submitButton = <input type="submit" className="login-submit" value="Log In" />;
     } else {
-      header = <h2 className="login-form-title">Sign Up</h2>
-      submitButton = <input type="submit" className="signup-submit" value="Sign Up" />
-    };
-    return(<div>
+      header = <h2 className="login-form-title">Sign Up</h2>;
+      submitButton = <input type="submit" className="signup-submit" value="Sign Up" />;
+    }
+    return (<div>
       <form onSubmit={this.handleSubmit}>
         <div className="login-form">
           {header}
@@ -83,17 +83,25 @@ const LoginForm = React.createClass({
             className="login-username"
             type="text"
             placeholder="Username"
-            onChange={this.usernameChange}  />
-          <input className="login-password"
+            onChange={this.usernameChange}
+          />
+          <input
+            className="login-password"
             type="password"
             placeholder="Password"
-            onChange={this.passwordChange} />
+            onChange={this.passwordChange}
+          />
           {submitButton}
-          <input type="submit" className="signup-submit" value="Guest Login" onClick={this.guestLogin}/>
+          <input
+            type="submit"
+            className="signup-submit"
+            value="Guest Login"
+            onClick={this.guestLogin}
+          />
         </div>
       </form>
-    </div>)
-  }
+    </div>);
+  },
 });
 
 module.exports = LoginForm;

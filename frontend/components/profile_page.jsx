@@ -8,28 +8,28 @@ const ProjectActions = require('../actions/project_actions');
 
 
 const ProfilePage = React.createClass({
-  getInitialState(){
-  return({ investments: [], projects: [], user: SessionStore.currentUser()})
-},
+  getInitialState() {
+    return ({ investments: [], projects: [], user: SessionStore.currentUser() });
+  },
 
-  componentDidMount(){
-    this.investmentListener = InvestmentStore.addListener(this.onChange)
-    this.projectListener = ProjectStore.addListener(this.onChange)
+  componentDidMount() {
+    this.investmentListener = InvestmentStore.addListener(this.onChange);
+    this.projectListener = ProjectStore.addListener(this.onChange);
     InvestmentActions.fetchInvestments();
     ProjectActions.fetchProjects();
   },
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.investmentListener.remove();
     this.projectListener.remove();
   },
 
-  onChange(){
-    let filteredInvestments = InvestmentStore.userFilter(this.state.user.id);
-    this.setState({investments: filteredInvestments, projects: ProjectStore.all()});
+  onChange() {
+    const filteredInvestments = InvestmentStore.userFilter(this.state.user.id);
+    this.setState({ investments: filteredInvestments, projects: ProjectStore.all() });
   },
 
-  render: function () {
+  render() {
     if (this.state.investments === [] || this.state.projects === []) {
       return (
         <div className="profile-page">
@@ -37,25 +37,36 @@ const ProfilePage = React.createClass({
         </div>
       );
     } else {
-    return (
-      <div className="profile-page">
-        <h1 className="profile-title">{SessionStore.currentUser().username}</h1>
-        <h3 className="investment-title">Recent Investments</h3>
-        <ul className="investment-list">
-        {
-          this.state.investments.map((inv)=> {
-            let currentProj = ProjectStore.find(inv.project_id);
-            if (currentProj === undefined) {
-              return;
-            }
-            return (<li key={inv.id} className="investment-list-item"><h2 className="investment-list-amount">${inv.amount}</h2><h2 className="investment-list-name">{currentProj.name}</h2></li>)
-          })
-        }
-      </ul>
-      </div>
+      return (
+        <div className="profile-page">
+          <h1 className="profile-title">{SessionStore.currentUser().username}</h1>
+          <h3 className="investment-title">Recent Investments</h3>
+          <ul className="investment-list">
+          {
+            this.state.investments.map((inv) => {
+              const currentProj = ProjectStore.find(inv.project_id);
+              if (currentProj === undefined) {
+                return;
+              }
+              return (
+                <li
+                  key={inv.id}
+                  className="investment-list-item"
+                ><h2
+                  className="investment-list-amount"
+                >${inv.amount}
+                </h2>
+                  <h2 className="investment-list-name">
+                  {currentProj.name}
+                  </h2>
+                </li>);
+            })
+          }
+          </ul>
+        </div>
     );
-  }
-}
+    }
+  },
 });
 
 module.exports = ProfilePage;

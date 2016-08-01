@@ -8,75 +8,81 @@ const SearchIndexItem = require('./search_index_item');
 
 const SearchIndex = React.createClass({
   getInitialState() {
-    return ({projects: {}, results:[]});
+    return ({ projects: {}, results: [] });
   },
 
   componentDidMount() {
     this.projectListener = ProjectStore.addListener(this.onChange);
     ProjectActions.fetchProjects();
-    this.setState({projects: ProjectStore.all()});
+    this.setState({ projects: ProjectStore.all() });
   },
 
   componentWillReceiveProps(props) {
-    let string = props.queryString
+    const string = props.queryString;
     this.findSearchResults(string);
   },
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.projectListener.remove();
   },
 
   onChange() {
-    this.setState({projects: ProjectStore.all()});
+    this.setState({ projects: ProjectStore.all() });
   },
 
-  findSearchResults(string){
-    if (string === "") {
-      this.setState({results: []});
+  findSearchResults(string) {
+    if (string === '') {
+      this.setState({ results: [] });
       return;
     }
-    let matchedProjects = [];
-    let allProjects = this.state.projects;
-    Object.keys(allProjects).forEach((key)=> {
-      if(allProjects[key].name.toLowerCase().includes(string.toLowerCase()) ||
+    const matchedProjects = [];
+    const allProjects = this.state.projects;
+    Object.keys(allProjects).forEach((key) => {
+      if (allProjects[key].name.toLowerCase().includes(string.toLowerCase()) ||
       allProjects[key].description.toLowerCase().includes(string.toLowerCase()) ||
       allProjects[key].rating.toLowerCase().includes(string.toLowerCase()) ||
       allProjects[key].category.toLowerCase().includes(string.toLowerCase())
-    )
+    ) {
         matchedProjects.push(allProjects[key]);
-    })
-    this.setState({results: matchedProjects});
+      }
+      this.setState({ results: matchedProjects });
+    });
   },
 
   render() {
-    if(this.state.results.length === 0){
-      return(<div className="empty-results">
-      <div>
-        <h2 className="results-title">Common Searches:</h2>
-        <ul className="results-title-list">
-          <li>
-            "123 Jane St"
-          </li>
-          <li>
-            "Apartment Building"
-          </li>
-          <li>
-            "Commercial" or "Residential"
-          </li>
-        </ul>
+    if (this.state.results.length === 0) {
+      return (<div className="empty-results">
+        <div>
+          <h2 className="results-title">Common Searches:</h2>
+          <ul className="results-title-list">
+            <li>
+              "123 Jane St"
+            </li>
+            <li>
+              "Apartment Building"
+            </li>
+            <li>
+              "Commercial" or "Residential"
+            </li>
+          </ul>
         </div>
-      </div>)
+      </div>);
     } else {
-    return (<ul className="project-list">
+      return (<ul className="project-list">
       {
-        this.state.results.map((mapped_project) => {
-          return (<SearchIndexItem disableSearch={this.props.disableSearch} key={mapped_project.id} project={mapped_project} />)
+        this.state.results.map((mappedProject) => {
+          return (
+            <SearchIndexItem
+              disableSearch={this.props.disableSearch}
+              key={mappedProject.id}
+              project={mappedProject}
+            />);
         })
       }
-      </ul>
-    )
-  }
-}
+    </ul>
+  );
+    }
+  },
 });
 
 module.exports = SearchIndex;
